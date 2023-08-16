@@ -76,7 +76,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.poo4_proy2p_fernandez_maldonado_veintimilla/com.example.poo4_proy2p_fernandez_maldonado_veintimilla.HelloApplication
+                                com.example.poo4_proy2p_fernandez_maldonado_veintimilla/com.example.Ventanas.VentanaPrincipal.PrincipalApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
