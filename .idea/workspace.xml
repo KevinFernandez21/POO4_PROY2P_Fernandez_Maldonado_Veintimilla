@@ -4,32 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25562609-5af6-4c23-ab15-89b2b2c781df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/EmergenteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso1Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso3Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Sabores.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Topping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Ubicacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="25562609-5af6-4c23-ab15-89b2b2c781df" name="Changes" comment="medio terminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/poo4_proy2p_fernandez_maldonado_veintimilla/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/poo4_proy2p_fernandez_maldonado_veintimilla/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/poo4_proy2p_fernandez_maldonado_veintimilla/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/local-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/local-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso1-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso1-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso2-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso2-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso3-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso3-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pedido-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pedido-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +75,20 @@
       <option name="presentableId" value="Default" />
       <updated>1691812591172</updated>
     </task>
+    <task id="LOCAL-00001" summary="medio terminado">
+      <option name="closed" value="true" />
+      <created>1692164877000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692164877000</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="medio terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="medio terminado" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/POO4_PROY2P_Fernandez_Maldonado_Veintimilla$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1691854815057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
