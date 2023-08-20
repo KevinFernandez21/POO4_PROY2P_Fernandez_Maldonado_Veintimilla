@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import java.util.ArrayList;
+import com.example.Ventanas.classes.*;
 
 import java.io.IOException;
 

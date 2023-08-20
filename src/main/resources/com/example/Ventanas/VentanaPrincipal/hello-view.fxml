@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PrincipalController">
    <children>
       <AnchorPane prefHeight="300.0" prefWidth="1000.0" />
       <AnchorPane layoutY="300.0" prefHeight="500.0" prefWidth="1000.0">
@@ -15,8 +11,9 @@
             <PasswordField fx:id="TFcontrasena" layoutX="486.0" layoutY="200.0" />
             <TextField fx:id="TFusuario" layoutX="486.0" layoutY="126.0" />
             <Button fx:id="btnIniciarSesion" layoutX="424.0" layoutY="401.0" mnemonicParsing="false" onAction="#goPassVentana" text="Iniciar Sesión" />
-            <Label layoutX="175.0" layoutY="121.0" text="Label" />
-            <Label layoutX="175.0" layoutY="191.0" prefWidth="28.0" text="Label" />
+            <Label layoutX="175.0" layoutY="121.0" text="Usuario:" />
+            <Label layoutX="175.0" layoutY="191.0" prefHeight="17.0" prefWidth="69.0" text="Contraseña:" />
+            <Label fx:id="lbIncorrecto" layoutX="183.0" layoutY="271.0" text=" " />
          </children>
       </AnchorPane>
    </children>

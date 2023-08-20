@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25562609-5af6-4c23-ab15-89b2b2c781df" name="Changes" comment="medio terminado">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Archivos/Usuarios.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +28,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
