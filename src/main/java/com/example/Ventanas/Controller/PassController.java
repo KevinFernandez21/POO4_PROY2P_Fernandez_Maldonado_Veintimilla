@@ -22,7 +22,7 @@ public class PassController {
     private Button btnPedido;
 
     @FXML
-    void btnPaso1(ActionEvent event) throws IOException {
+    void goPaso1(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
