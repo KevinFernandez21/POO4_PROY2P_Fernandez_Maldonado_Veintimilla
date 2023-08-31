@@ -40,4 +40,9 @@ public class Usuario {
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
         return listaUsuarios;
     }
+
+    public String toString(){
+        return usuario+"-"+contrasena;
+    }
+
 }
