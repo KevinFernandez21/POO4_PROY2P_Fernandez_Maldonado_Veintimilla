@@ -37,6 +37,7 @@ public class Paso2Controller {
         window.setTitle("Paso3");
         window.setScene(scene);
         window.show();
+        System.out.println();
 
     }
 }

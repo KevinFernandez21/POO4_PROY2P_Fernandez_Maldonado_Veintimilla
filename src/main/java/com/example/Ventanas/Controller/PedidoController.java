@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
-import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 
 public class PedidoController {
     @FXML
