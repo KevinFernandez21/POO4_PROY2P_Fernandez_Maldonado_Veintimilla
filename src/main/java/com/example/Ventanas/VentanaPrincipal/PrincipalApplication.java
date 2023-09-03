@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import com.example.Ventanas.classes.*;
 
@@ -18,6 +21,9 @@ public class PrincipalApplication extends Application {
     public static String rutaImagen = "src/main/resources/Archivos/imagenes.icono/";
     @Override
     public void start(Stage PrincipalStage) throws IOException {
+        String cssFile = getClass().getResource("/css/principal.css").toExternalForm();
+        setUserAgentStylesheet(cssFile);
+
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("hello-view.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root,700,700);

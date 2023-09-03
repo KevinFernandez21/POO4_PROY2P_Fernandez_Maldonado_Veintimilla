@@ -55,7 +55,8 @@ public class Paso1Controller implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/paso2.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Paso2");

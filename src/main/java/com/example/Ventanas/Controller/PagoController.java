@@ -227,7 +227,8 @@ public class PagoController implements Initializable  {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/final.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Completado");

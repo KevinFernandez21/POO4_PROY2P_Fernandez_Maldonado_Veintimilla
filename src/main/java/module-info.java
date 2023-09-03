@@ -1,6 +1,7 @@
 module com.example.poo4_proy2p_fernandez_maldonado_veintimilla {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;

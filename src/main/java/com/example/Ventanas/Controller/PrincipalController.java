@@ -12,8 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.net.URL;
 import java.util.ArrayList;
 import com.example.Ventanas.classes.*;
 import java.io.FileReader;
@@ -37,7 +40,8 @@ public class PrincipalController {
 
     @FXML
     private Label lbIncorrecto;
-
+    @FXML
+    private AnchorPane contenedor_padre;
     static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     public static String nombreCliente = "";
     static boolean leido = false; //para verificar que se halla leido el archivo Usuarios.txt solo una vez
@@ -102,17 +106,24 @@ public class PrincipalController {
 
             FXMLLoader fxmlLoader2 = new FXMLLoader(PrincipalApplication.class.getResource("emergente-view.fxml"));
             Parent root2 = fxmlLoader2.load();
+
             Scene scene2 = new Scene(root2, 400, 600);
             Stage stage2 = new Stage();
+            URL cssFile = PrincipalApplication.class.getResource("/css/emergente.css");
+            scene2.getStylesheets().add(cssFile.toExternalForm());
             EmergenteController controller2 = fxmlLoader2.getController();
             stage2.initModality(Modality.NONE);
             stage2.setScene(scene2);
             stage2.show();
 
+
             FXMLLoader fxmlLoader1 = new FXMLLoader(PrincipalApplication.class.getResource("pass-view.fxml"));
             Parent root1 = fxmlLoader1.load();
+
             Scene scene1 = new Scene(root1, 1000, 800);
             // Stage stage1 = new Stage();
+            URL cssFile2 = PrincipalApplication.class.getResource("/css/pass.css");
+            scene1.getStylesheets().add(cssFile2.toExternalForm());
             PassController controller1 = fxmlLoader1.getController();
             // stage1.initModality(Modality.NONE);
             // stage1.setScene(scene1);
