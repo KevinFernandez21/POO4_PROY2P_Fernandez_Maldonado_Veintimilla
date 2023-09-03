@@ -1,40 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
+
+<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
    <children>
-      <AnchorPane layoutX="2.0" prefHeight="100.0" prefWidth="600.0">
+      <AnchorPane prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label layoutX="62.0" layoutY="57.0" text="Label" />
+            <Label layoutX="62.0" layoutY="57.0" text="Pago">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="5.0" layoutY="600.0" prefHeight="200.0" prefWidth="600.0">
+      <AnchorPane prefHeight="48.0" prefWidth="605.0">
          <children>
-            <Button fx:id="btnConfirmar" layoutX="373.0" layoutY="117.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
-            <Button layoutX="489.0" layoutY="117.0" mnemonicParsing="false" text="Cancelar" />
+            <RadioButton fx:id="btEfectivo" layoutX="101.0" layoutY="16.0" mnemonicParsing="false" text="Efectivo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="ModoPago" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="btTarteja" layoutX="259.0" layoutY="16.0" mnemonicParsing="false" text="Tarjeta de crédito" toggleGroup="$ModoPago" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="100.0" prefHeight="48.0" prefWidth="605.0">
+      <AnchorPane prefHeight="209.0" prefWidth="605.0">
          <children>
-            <RadioButton layoutX="101.0" layoutY="16.0" mnemonicParsing="false" text="RadioButton" />
-            <RadioButton layoutX="259.0" layoutY="16.0" mnemonicParsing="false" text="RadioButton" />
+            <Label layoutX="54.0" layoutY="14.0" text="Detalle de pago">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="50.0" text="Valor a pagar:" />
+            <Label layoutX="54.0" layoutY="85.0" text="Adicional tarjeta:" />
+            <Label layoutX="54.0" layoutY="120.0" text="IVA:" />
+            <Label layoutX="54.0" layoutY="155.0" text="Total a pagar:" />
+            <TextField fx:id="txtValor" editable="false" layoutX="150.0" layoutY="50.0" />
+            <TextField fx:id="txtAdicional" editable="false" layoutX="150.0" layoutY="85.0" />
+            <TextField fx:id="txtIva" editable="false" layoutX="150.0" layoutY="120.0" />
+            <TextField fx:id="txtTotal" editable="false" layoutX="150.0" layoutY="155.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="148.0" prefHeight="329.0" prefWidth="605.0">
+      <VBox fx:id="CreditoBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Label layoutX="54.0" layoutY="14.0" text="Label" />
-            <Label layoutX="54.0" layoutY="53.0" text="Label" />
-            <Label layoutX="54.0" layoutY="89.0" text="Label" />
-            <Label layoutX="54.0" layoutY="115.0" text="Label" />
-            <Label layoutX="54.0" layoutY="156.0" text="Label" />
-            <TextField layoutX="108.0" layoutY="49.0" />
-            <TextField layoutX="108.0" layoutY="85.0" />
-            <TextField layoutX="108.0" layoutY="120.0" />
-            <TextField layoutX="108.0" layoutY="152.0" />
-            <Label layoutX="289.0" layoutY="259.0" text="Label" />
+            <Label text="Acercate a caja para pagar tu pedido">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <AnchorPane prefHeight="113.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btnConfirmar" layoutX="372.0" layoutY="44.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
+            <Button layoutX="490.0" layoutY="44.0" mnemonicParsing="false" text="Cancelar" />
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</VBox>

@@ -29,6 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.example.Ventanas.Controller.PrincipalController.nombreCliente;
 import static java.time.Duration.*;
 
 public class PedidoController implements Initializable {
@@ -244,6 +245,8 @@ public class PedidoController implements Initializable {
     }
     @FXML
     void toPago(ActionEvent event) throws IOException {
+        Pedido pe = new Pedido(nombreCliente, precio_recolectado);
+        Pedido.escribirArchivo(pe);
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pago-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);

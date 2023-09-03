@@ -9,15 +9,31 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pedido implements Pagable,Serializable{
     private String idpedido;
 
     private String nombre;
     private Double total;
+    private static Set<Integer> idPedidos = new HashSet<>();
 
-    public Pedido(String idpedido, String nombre, Double total) {
-        this.idpedido = idpedido;
+
+    private int genIdPedido(){
+        //int a = idPedidos.size();
+        int num;
+        do{
+            num = (int) (Math.random()*90)+1;
+            System.out.println(num);
+        }while(idPedidos.contains(num));
+
+        idPedidos.add(num);
+        return num;
+    }
+
+    public Pedido(String nombre, Double total) {
+        this.idpedido = String.valueOf(genIdPedido());
         this.nombre = nombre;
         this.total = total;
     }

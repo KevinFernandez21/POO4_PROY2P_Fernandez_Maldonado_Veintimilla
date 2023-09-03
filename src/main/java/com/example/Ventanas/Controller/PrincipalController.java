@@ -39,11 +39,19 @@ public class PrincipalController {
     private Label lbIncorrecto;
 
     static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    public static String nombreCliente = "";
     static boolean leido = false; //para verificar que se halla leido el archivo Usuarios.txt solo una vez
 
+    /**
+     * valida las credenciales ingresadas en la lista de usuarios
+     * @param cuenta nombre de usuario
+     * @param contra contraseña de la cuenta
+     * @return true si es que las credenciales son correctas, de no ser asi retorna false
+     */
     public static boolean validarUsuario(String cuenta, String contra){
         for(Usuario i: listaUsuarios){
             if( (cuenta.equals(i.getUsuario())) && (contra.equals(i.getContrasena())) ){
+                nombreCliente = i.getNombre();
                 return true;
             }
         }
@@ -90,7 +98,7 @@ public class PrincipalController {
         if(validacion) {
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
+            //stage.close();
 
             FXMLLoader fxmlLoader2 = new FXMLLoader(PrincipalApplication.class.getResource("emergente-view.fxml"));
             Parent root2 = fxmlLoader2.load();
@@ -104,11 +112,12 @@ public class PrincipalController {
             FXMLLoader fxmlLoader1 = new FXMLLoader(PrincipalApplication.class.getResource("pass-view.fxml"));
             Parent root1 = fxmlLoader1.load();
             Scene scene1 = new Scene(root1, 1000, 800);
-            Stage stage1 = new Stage();
+            // Stage stage1 = new Stage();
             PassController controller1 = fxmlLoader1.getController();
-            stage1.initModality(Modality.NONE);
-            stage1.setScene(scene1);
-            stage1.show();
+            // stage1.initModality(Modality.NONE);
+            // stage1.setScene(scene1);
+            // stage1.show();
+            stage.setScene(scene1);
         } else{
             lbIncorrecto.setText("DATOS INCORRECTOS, vuelvalo a intentar");
         }

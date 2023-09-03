@@ -14,6 +14,8 @@ import com.example.Ventanas.classes.*;
 import java.io.IOException;
 
 public class PrincipalApplication extends Application {
+    public static String rutaFiles = "src/main/resources/Archivos/";
+    public static String rutaImagen = "src/main/resources/Archivos/imagenes.icono/";
     @Override
     public void start(Stage PrincipalStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("hello-view.fxml"));

@@ -2,10 +2,11 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.LocalController">
+<AnchorPane prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.LocalController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="BackMapa" fitHeight="430.0" fitWidth="600.0" pickOnBounds="true" />
+      <Pane fx:id="pane" prefHeight="430.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

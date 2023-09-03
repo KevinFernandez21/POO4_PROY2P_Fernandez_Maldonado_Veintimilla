@@ -42,7 +42,8 @@ public class PassController {
 
         Scene scene = new Scene(p1);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = new Stage();
 
         window.setScene(scene);
         window.show();
