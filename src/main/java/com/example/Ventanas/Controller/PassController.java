@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
 import java.io.IOException;
@@ -23,7 +24,6 @@ public class PassController {
 
     @FXML
     void goPaso1(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
@@ -33,14 +33,13 @@ public class PassController {
         window.setTitle("Paso1");
         window.setScene(scene);
         window.show();
-
     }
 
     @FXML
     void goLocales(ActionEvent event) throws IOException {
-        
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("local-view.fxml"));
         Parent p1 = fxmlLoader.load();
+
         Scene scene = new Scene(p1);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -18,8 +18,8 @@ public class PrincipalApplication extends Application {
     public void start(Stage PrincipalStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("hello-view.fxml"));
         Parent root = fxmlLoader.load();
-        Scene Scene = new Scene(root,1000,800);
-        PrincipalStage.setScene(Scene);
+        Scene scene = new Scene(root,700,700);
+        PrincipalStage.setScene(scene);
         PrincipalController controller =  fxmlLoader.getController();
         controller.setStage(PrincipalStage);
         PrincipalStage.show();

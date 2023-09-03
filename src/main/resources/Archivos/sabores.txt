@@ -1,0 +1,7 @@
+Vainilla,1.50
+Cheescake Mora,2.00
+Chocolate,2.50
+Chile,2.00
+Coco,2.50
+Ron pasas,2.00
+Fresa,2.50

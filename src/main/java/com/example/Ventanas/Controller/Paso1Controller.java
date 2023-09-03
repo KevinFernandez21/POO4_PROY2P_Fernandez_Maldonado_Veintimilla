@@ -8,11 +8,17 @@ import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -21,8 +27,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 
 public class Paso1Controller implements Initializable {
@@ -39,12 +43,15 @@ public class Paso1Controller implements Initializable {
 
     @FXML
     private FlowPane container_paso1;
+    @FXML
+    private ToggleGroup group = new ToggleGroup();
+    @FXML
+    private Label pre1;
 
     //externo
     private ArrayList<Base> listaBase;
     @FXML
     void goPaso2(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
@@ -58,22 +65,62 @@ public class Paso1Controller implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Controlador inicializado.");
         cargarBase();
     }
+
     public void cargarBase(){
         container_paso1.getChildren().clear();
-        container_paso1.setOrientation(Orientation.VERTICAL);
+        container_paso1.setOrientation(Orientation.HORIZONTAL);
         System.out.println("Se esta leyendo la base");
         try{
             listaBase = Base.leerBase();
             for(Base base: listaBase){
-                CheckBox tipo = new CheckBox(base.getTipo());
-                container_paso1.getChildren().add(tipo);
+                Path file = Paths.get("src", "main","resources","Archivos","imagenes","base",base.getTipo()+".png");
+
+                VBox Contenedor_base = new VBox();
+
+                HBox part1 = new HBox();
+
+                Contenedor_base.getChildren().add(part1);
+
+                FileInputStream fis = new FileInputStream(file.toFile());
+                ImageView imagenView = new ImageView(new Image(fis));
+                part1.getChildren().add(imagenView);
+                imagenView.setFitWidth(80);
+                imagenView.setFitHeight(80);
+
+                Label tipo = new Label(base.getTipo());
+                part1.getChildren().add(tipo);
+
+                Label precio = new Label(String.valueOf(base.getPrecio()));
+                Contenedor_base.getChildren().add(precio);
+                part1.getChildren().addAll();
+
+
+                Contenedor_base.setOnMouseClicked(MouseEvent -> onPrecioClick(base,Contenedor_base));
+                container_paso1.getChildren().add(Contenedor_base);
             }
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+    private static Base baseSeleccionada;
 
+    public static Base getBaseSeleccionada() {
+        return baseSeleccionada;
+    }
+
+    private VBox elementoSeleccionado;
+    private void onPrecioClick(Base base,VBox contenedorBase){
+        pre1.setText("Precio: " + String.valueOf(base.getPrecio()));
+
+        if (elementoSeleccionado != null) {
+            elementoSeleccionado.setStyle(null);
+            baseSeleccionada = null;
+        }
+
+        elementoSeleccionado = contenedorBase;
+        baseSeleccionada = base;
+        contenedorBase.setStyle("-fx-background-color: orange;");
     }
 }
