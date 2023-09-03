@@ -204,32 +204,24 @@ public class LocalController implements Initializable {
 
                     Thread th = new Thread(new Runnable() {
                         @Override
-                        public void run() {
-                            Runnable updater = new Runnable() {
 
+                        public void run() {
+                            try {
+                                Thread.sleep(5000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+                            Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    incrementCount();
+                                    stagePop.close();
                                 }
-                            };
-
-                            while (true) {
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ex) {
-                                }
-
-                                // UI update is run on the Application thread
-                                Platform.runLater(updater);
-                            }
+                            });
                         }
-
                     });
-
+                    th.start();
                     stagePop.show();
-
-
-
                 }
             });
         }
