@@ -110,6 +110,10 @@ public class Paso1Controller implements Initializable {
         return baseSeleccionada;
     }
 
+    public static void setBaseSeleccionada(Base baseSeleccionada) {
+        Paso1Controller.baseSeleccionada = baseSeleccionada;
+    }
+
     private VBox elementoSeleccionado;
     private void onPrecioClick(Base base,VBox contenedorBase){
         pre1.setText("Precio: " + String.valueOf(base.getPrecio()));

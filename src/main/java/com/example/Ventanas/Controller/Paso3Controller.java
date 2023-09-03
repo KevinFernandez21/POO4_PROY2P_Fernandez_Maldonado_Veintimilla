@@ -96,6 +96,10 @@ public class Paso3Controller implements Initializable {
         return toppingsseleccionado;
     }
 
+    public static void setToppingsseleccionado(ArrayList<Topping> toppingsseleccionado) {
+        Paso3Controller.toppingsseleccionado = toppingsseleccionado;
+    }
+
     private DecimalFormat decimalFormat = new DecimalFormat("#.00");
     public void selectCheck(CheckBox checkBox, Topping t){
 

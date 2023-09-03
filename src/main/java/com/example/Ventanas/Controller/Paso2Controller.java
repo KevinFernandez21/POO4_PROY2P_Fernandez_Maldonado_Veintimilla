@@ -98,6 +98,14 @@ public class Paso2Controller implements Initializable {
         return valorseleccionado2;
     }
 
+    public static void setValorseleccionado1(Sabor valorseleccionado1) {
+        Paso2Controller.valorseleccionado1 = valorseleccionado1;
+    }
+
+    public static void setValorseleccionado2(Sabor valorseleccionado2) {
+        Paso2Controller.valorseleccionado2 = valorseleccionado2;
+    }
+
     private double valorSeleccionadoCb1 = 0.0;
     private double valorSeleccionadoCb2 = 0.0;
 
