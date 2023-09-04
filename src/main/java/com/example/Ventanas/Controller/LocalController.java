@@ -47,6 +47,9 @@ public class LocalController implements Initializable {
     private int count = 0;
     private final Label text = new Label(Integer.toString(count));
 
+    private final static ArrayList<Integer> cuentaRegresiva = new ArrayList<>();
+
+
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
@@ -55,6 +58,14 @@ public class LocalController implements Initializable {
     private void incrementCount() {
         count++;
         text.setText(Integer.toString(count));
+    }
+
+    private void crearCuentaRegresiva(){
+        cuentaRegresiva.add(5);
+        cuentaRegresiva.add(4);
+        cuentaRegresiva.add(3);
+        cuentaRegresiva.add(2);
+        cuentaRegresiva.add(1);
     }
 
     /**
@@ -202,31 +213,39 @@ public class LocalController implements Initializable {
                     stagePop.setResizable(false);
                     stagePop.setTitle("Información del local");
 
+
+                    stagePop.show();
                     Thread th = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Runnable updater = new Runnable() {
 
+                            try{
+                                Thread.sleep(5000);
+                            }catch(InterruptedException e){
+                                e.printStackTrace();
+                            }
+
+                            Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    incrementCount();
+                                    stagePop.close();
                                 }
-                            };
+                            });
 
-                            while (true) {
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ex) {
-                                }
 
-                                // UI update is run on the Application thread
-                                Platform.runLater(updater);
-                            }
+//                            Platform.runLater(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    stagePop.close();
+//                                }
+//                            });
                         }
 
                     });
 
+                    th.start();
                     stagePop.show();
+
 
 
 

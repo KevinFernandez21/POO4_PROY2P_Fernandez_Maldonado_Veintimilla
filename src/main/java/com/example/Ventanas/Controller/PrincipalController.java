@@ -57,7 +57,9 @@ public class PrincipalController {
         }
         return false;
     }
-
+    /**
+     * lee el archivo de usuarios.txt y guarda los datos de usuarios en un arrayList
+     */
     public static void leerUsuario(){
 
         Path ruta = Paths.get("src/main/resources/Archivos/Usuarios.txt");
@@ -80,6 +82,11 @@ public class PrincipalController {
         }
     }
 
+    /**
+     * cambia la escena a pass-view y tambien invoca una ventana emergente
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPassVentana(ActionEvent event) throws IOException{
 
@@ -98,7 +105,6 @@ public class PrincipalController {
         if(validacion) {
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
-            //stage.close();
 
             FXMLLoader fxmlLoader2 = new FXMLLoader(PrincipalApplication.class.getResource("emergente-view.fxml"));
             Parent root2 = fxmlLoader2.load();
@@ -112,11 +118,7 @@ public class PrincipalController {
             FXMLLoader fxmlLoader1 = new FXMLLoader(PrincipalApplication.class.getResource("pass-view.fxml"));
             Parent root1 = fxmlLoader1.load();
             Scene scene1 = new Scene(root1, 1000, 800);
-            // Stage stage1 = new Stage();
             PassController controller1 = fxmlLoader1.getController();
-            // stage1.initModality(Modality.NONE);
-            // stage1.setScene(scene1);
-            // stage1.show();
             stage.setScene(scene1);
         } else{
             lbIncorrecto.setText("DATOS INCORRECTOS, vuelvalo a intentar");

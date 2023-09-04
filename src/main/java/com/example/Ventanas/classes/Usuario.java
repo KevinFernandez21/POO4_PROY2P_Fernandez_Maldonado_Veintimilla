@@ -17,22 +17,38 @@ public class Usuario {
         this.email = email;
     }
 
+    /**
+     * getter nombre del cliente
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
-
+    /**
+     * getter apellido del cliente
+     * @return apellido
+     */
     public String getApellido() {
         return apellido;
     }
-
+    /**
+     * getter nombre de usuario
+     * @return usuario
+     */
     public String getUsuario() {
         return usuario;
     }
-
+    /**
+     * getter contraseña de usuario
+     * @return contraseña
+     */
     public String getContrasena() {
         return contrasena;
     }
-
+    /**
+     * getter email del usuario
+     * @return email
+     */
     public String getEmail() {
         return email;
     }

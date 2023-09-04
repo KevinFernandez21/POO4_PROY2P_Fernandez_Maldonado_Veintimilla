@@ -2,6 +2,7 @@ package com.example.Ventanas.Controller;
 
 import com.example.Ventanas.classes.Base;
 import com.example.Ventanas.classes.Sabor;
+import com.example.Ventanas.classes.incompleteStageException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Collections;
 
 import javafx.event.ActionEvent;
 
@@ -45,26 +47,36 @@ public class Paso2Controller implements Initializable {
 
     //externo
     private ArrayList<Sabor> listaSabor;
-
+    /**
+     * cambia la escena a paso3-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void toPaso3(ActionEvent event) throws IOException {
+    void toPaso3(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso3-view.fxml"));
+            Parent p = fxmlLoader.load();
+            Scene scene = new Scene(p);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso3-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setTitle("Paso3");
-        window.setScene(scene);
-        window.show();
-        System.out.println();
+            window.setTitle("Paso3");
+            window.setScene(scene);
+            window.show();
+            System.out.println();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
     }
     public void initialize(URL location, ResourceBundle resources) {
         cargarSabor();
         pre2.setText("Precio total: " + String.valueOf(Paso1Controller.getBaseSeleccionada().getPrecio()));
     }
+    /**
+     * carga las opciones de sabor en la escena
+     */
     public void cargarSabor(){
         container_paso2.getChildren().clear();
         container_paso2.setOrientation(Orientation.HORIZONTAL);
@@ -78,6 +90,7 @@ public class Paso2Controller implements Initializable {
         ComboBox cbsabores1 = new ComboBox();
         try{
             ArrayList<Sabor> sabores = Sabor.leerSabores();
+            Collections.sort(sabores);
             cbsabores1.getItems().addAll(sabores);
         }catch (IOException e){
             e.printStackTrace();
@@ -89,19 +102,29 @@ public class Paso2Controller implements Initializable {
     }
     private static Sabor valorseleccionado1;
     private static Sabor valorseleccionado2;
-
+    /**
+     * getter primer sabor seleccionado por el usuario
+     * @return sabor seleccionado 1
+     */
     public static Sabor getValorseleccionado1() {
         return valorseleccionado1;
     }
-
+    /**
+     * getter segundo sabor seleccionado por el usuario
+     * @return sabor seleccionado 2
+     */
     public static Sabor getValorseleccionado2() {
         return valorseleccionado2;
     }
-
+    /**
+     * setter primer sabor seleccionado por el usuario
+     */
     public static void setValorseleccionado1(Sabor valorseleccionado1) {
         Paso2Controller.valorseleccionado1 = valorseleccionado1;
     }
-
+    /**
+     * setter segundo sabor seleccionado por el usuario
+     */
     public static void setValorseleccionado2(Sabor valorseleccionado2) {
         Paso2Controller.valorseleccionado2 = valorseleccionado2;
     }
@@ -109,6 +132,10 @@ public class Paso2Controller implements Initializable {
     private double valorSeleccionadoCb1 = 0.0;
     private double valorSeleccionadoCb2 = 0.0;
 
+    /**
+     * invoca al segundo combobox para seleccionar el 2do sabor
+     * @param Cb1 primero combobox
+     */
     public void mostraOtralista(ComboBox<Sabor> Cb1) {
         Sabor sabor = Cb1.getValue();
         valorseleccionado1 = sabor;
@@ -127,6 +154,7 @@ public class Paso2Controller implements Initializable {
 
             try {
                 ArrayList<Sabor> sabores = Sabor.leerSabores();
+                Collections.sort(sabores);
                 cbsabores2.getItems().addAll(sabores);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -146,10 +174,15 @@ public class Paso2Controller implements Initializable {
             Cb1.setUserData(cbsabores2);
         }
     }
-
+    /**
+     * Actualiza el valor a pagar con la informacion del 1er sabor elegido
+     */
     public void actualizarLabel1() {
         pre2.setText("Precio total: " + String.valueOf(valorSeleccionadoCb1));
     }
+    /**
+     * Actualiza el valor a pagar con la informacion del 2do sabor elegido
+     */
     public void actualizarLabel2() {
         pre2.setText("Precio total: " + String.valueOf(valorSeleccionadoCb2));
     }

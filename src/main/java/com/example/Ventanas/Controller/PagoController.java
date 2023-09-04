@@ -8,8 +8,12 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
+
+import com.example.Ventanas.classes.Pago;
+import com.example.Ventanas.classes.incompleteStageException;
 import com.example.Ventanas.classes.metodoPago;
 
+import com.example.Ventanas.interfaz.Pagable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,10 +31,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import java.time.LocalDate;
 
+import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
+import static com.example.Ventanas.Controller.PrincipalController.nombreCliente;
 import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFiles;
 
-public class PagoController implements Initializable  {
+public class PagoController implements Initializable, Pagable {
     @FXML
     private Label welcomeText;
 
@@ -63,25 +70,19 @@ public class PagoController implements Initializable  {
 
     private static Set<Integer> idPagos = new HashSet<>();
 
+    //Variables para pago
+
+    String fechaCaducidad;
+    Double finalTotal;
+    ///////////////////
+
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    //Mi idea es que el boton continuar se sete al checkNull, donde si pasa todas las condiciones entonces se invoca a toCompletado
-    void checkNull(){
-        RadioButton tipoPago = (RadioButton) ModoPago.getSelectedToggle();
-        if(tipoPago == null){
-            System.out.println("Excepcion aca");
-        }else if (tipoPago.getText().equals("Efectivo")){
-            metodoPago m = metodoPago.E;
-        }else{
-            metodoPago m = metodoPago.C;
-        }
 
-
-    }
 
     /**
      * genera una Id para los pagos, tambien se asegura de que las Id no se repitan
@@ -110,10 +111,6 @@ public class PagoController implements Initializable  {
             int idP = genIdPago();
 
 
-
-
-
-
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -123,7 +120,7 @@ public class PagoController implements Initializable  {
     /**
      * Genera un layout con textFields para la transacción con tarjeta de credito, se genera solo si el usuario selecciono la opcion de pago con tarjeta de credito
      */
-    private void parteCredito(){
+    private void parteCredito() {
         if(btTarteja.isSelected()){
             CreditoBox.getChildren().clear();
             Label lb1 = new Label("Inserte los datos de su tarjeta");
@@ -149,6 +146,13 @@ public class PagoController implements Initializable  {
             Label lbFecha = new Label("Fecha Caducidad:");
             lbFecha.setPadding(new Insets(0,0,0,55));
             DatePicker dPicker = new DatePicker();
+
+            dPicker.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    fechaCaducidad = dPicker.getValue().toString();
+                }
+            });
             linea3.getChildren().addAll(lbFecha,dPicker);
             linea3.setSpacing(20);
 
@@ -163,7 +167,46 @@ public class PagoController implements Initializable  {
             CreditoBox.getChildren().addAll(lb1,linea1,linea2,linea3,linea4);
             CreditoBox.setAlignment(Pos.CENTER_LEFT);
             CreditoBox.setSpacing(10);
+
+
+            btnConfirmar.setOnAction(new EventHandler<ActionEvent>(){
+
+                public void handle(ActionEvent event){
+                    boolean condicion = false;
+                    metodoPago m = null;
+                    RadioButton tipoPago = (RadioButton) ModoPago.getSelectedToggle();
+                    if(tipoPago == null){
+                        System.out.println("error");
+                    }else if (tipoPago.getText().equals("Efectivo")){
+                         m = metodoPago.E;
+
+                    }else{
+                         m = metodoPago.C;
+
+                    }
+
+                    if(tfNumero.getText().equals("")||tfName.getText().equals("")||tfCVV.getText().equals("")||dPicker.getValue()==null){
+                        System.out.println("error, parametro vacio");
+                    }else{
+                        Pago p = new Pago(pedidoActual.getIdpedido(),tfName.getText(),Double.parseDouble(txtTotal.getText().replace(',','.')),dPicker.getValue().toString(),m);
+                        Pagable.generarTransaccion(p);
+                        condicion = true;
+                    }
+                    if(condicion){
+                        try {
+                            toCompletado(event);
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+
+
+            });
+
         }
+
 
     }
 
@@ -173,7 +216,7 @@ public class PagoController implements Initializable  {
      * @param conCredito
      */
     private void calcDatos(boolean conCredito){
-        Double subtotal = Double.parseDouble(txtValor.getText());
+        Double subtotal = Double.parseDouble(txtValor.getText().replace(',','.'));
         Double extra = 0.0;
         if(conCredito){
             extra = (subtotal+extra)*0.10;
@@ -191,7 +234,9 @@ public class PagoController implements Initializable  {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
-        //  txtValor.setText("4.12");
+        Double subtotal = pedidoActual.getTotal();
+
+        txtValor.setText(String.format("%,.2f", subtotal));
         btTarteja.setOnMouseClicked(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent event){
                 parteCredito();
@@ -209,6 +254,36 @@ public class PagoController implements Initializable  {
                     lb2.setFont(new Font("System Bold Italic",16));
                     CreditoBox.getChildren().add(lb2);
                     CreditoBox.setAlignment(Pos.CENTER);
+
+                    btnConfirmar.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            boolean condicion = false;
+                            metodoPago m = null;
+                            RadioButton tipoPago = (RadioButton) ModoPago.getSelectedToggle();
+                            if(tipoPago == null){
+                                System.out.println("error");
+                            }else if (tipoPago.getText().equals("Efectivo")){
+                                m = metodoPago.E;
+
+                            }else{
+                                m = metodoPago.C;
+                            }
+
+                            Pago p = new Pago(pedidoActual.getIdpedido(),nombreCliente,Double.parseDouble(txtTotal.getText().replace(',','.')),LocalDate.now().toString(),m);
+                            Pagable.generarTransaccion(p);
+                            if(condicion) {
+                                try {
+                                    toCompletado(event);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }else{
+                                System.out.println("ingrese opcion de pago");
+                            }
+
+                        }
+                    });
                 }
                 calcDatos(false);
             }
@@ -221,7 +296,6 @@ public class PagoController implements Initializable  {
      * @param event
      * @throws IOException
      */
-    @FXML
     void toCompletado(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));

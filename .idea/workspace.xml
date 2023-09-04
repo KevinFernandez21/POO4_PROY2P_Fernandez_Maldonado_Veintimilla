@@ -5,25 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25562609-5af6-4c23-ab15-89b2b2c781df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/metodoPago.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Archivos/imagenes.icono/Helado_Punto2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Archivos/imagenes.icono/mapa2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Archivos/locales.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pago.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/incompleteStageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Archivos/pagos.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/EmergenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/EmergenteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso1Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso3Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Base.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Ubicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Ubicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Sabor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Sabor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Topping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/interfaz/Pagable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/interfaz/Pagable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/pedidos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/pedidos.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/local-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/local-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/emergente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/emergente-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pass-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pass-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +41,8 @@
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
         <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -62,7 +67,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Yo/Desktop/POOproject2/3er Esteee/POO4_PROY2P_Fernandez_Maldonado_Veintimilla/src/main/resources/Archivos",
+    "last_opened_file_path": "C:/Users/Yo/Desktop/POOproject2/backup 2",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0"
@@ -179,6 +184,16 @@
     <MESSAGE value="aumento de el paso 1" />
     <MESSAGE value="implementacion del paso1,paso2,paso3 y la mitad de pedido" />
     <option name="LAST_COMMIT_MESSAGE" value="implementacion del paso1,paso2,paso3 y la mitad de pedido" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/POO4_PROY2P_Fernandez_Maldonado_Veintimilla$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1691854815057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

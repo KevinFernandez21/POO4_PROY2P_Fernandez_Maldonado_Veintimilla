@@ -17,10 +17,18 @@ public class Topping {
         this.precio = precio;
     }
 
+    /**
+     * getter tipo de topping
+     * @return tipo
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * precio de topping
+     * @return precio
+     */
     public Double getPrecio() {
         return precio;
     }
@@ -29,6 +37,11 @@ public class Topping {
         return tipo + " -$" +precio;
     }
 
+    /**
+     * lee el archivo topping.txt y retorna un arrayList de toppings
+     * @return arrayList de toppings
+     * @throws IOException
+     */
     public static ArrayList<Topping> leerTopping() throws IOException {
         Path file = Paths.get("src", "main","resources","Archivos","topping.txt");
         ArrayList<Topping> lista = new ArrayList<>();

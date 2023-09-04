@@ -1,6 +1,8 @@
 package com.example.Ventanas.Controller;
 
 import com.example.Ventanas.classes.Base;
+import com.example.Ventanas.classes.incompleteStageException;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.util.Duration;
 
 
 public class Paso1Controller implements Initializable {
@@ -50,17 +53,26 @@ public class Paso1Controller implements Initializable {
 
     //externo
     private ArrayList<Base> listaBase;
+    /**
+     * Cambia la escena a paso2-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void goPaso2(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
+    void goPaso2(ActionEvent event) throws incompleteStageException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
+            Parent p = fxmlLoader.load();
+            Scene scene = new Scene(p);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        window.setTitle("Paso2");
-        window.setScene(scene);
-        window.show();
+            window.setTitle("Paso2");
+            window.setScene(scene);
+            window.show();
+        }catch(IOException e){
+            throw new incompleteStageException("base no escogida");
+        }
 
     }
     @Override
@@ -68,6 +80,9 @@ public class Paso1Controller implements Initializable {
         cargarBase();
     }
 
+    /**
+     * carga las opciones de bases en la escena
+     */
     public void cargarBase(){
         container_paso1.getChildren().clear();
         container_paso1.setOrientation(Orientation.HORIZONTAL);
@@ -105,16 +120,27 @@ public class Paso1Controller implements Initializable {
         }
     }
     private static Base baseSeleccionada;
-
+    /**
+     * getter base seleccionada por el usuario
+     * @return base seleccionada
+     */
     public static Base getBaseSeleccionada() {
         return baseSeleccionada;
     }
-
+    /**
+     * setter base seleccionada por el usuario
+     */
     public static void setBaseSeleccionada(Base baseSeleccionada) {
         Paso1Controller.baseSeleccionada = baseSeleccionada;
     }
 
     private VBox elementoSeleccionado;
+
+    /**
+     * actualiza el valor a pagar en el label, se invoca cuando el usuario presiona por encima del imageView de una base
+     * @param base
+     * @param contenedorBase
+     */
     private void onPrecioClick(Base base,VBox contenedorBase){
         pre1.setText("Precio: " + String.valueOf(base.getPrecio()));
 
@@ -127,4 +153,5 @@ public class Paso1Controller implements Initializable {
         baseSeleccionada = base;
         contenedorBase.setStyle("-fx-background-color: orange;");
     }
+
 }

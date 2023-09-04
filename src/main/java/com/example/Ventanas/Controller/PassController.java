@@ -21,7 +21,11 @@ public class PassController {
 
     @FXML
     private Button btnPedido;
-
+    /**
+     * Abre una nueva stage con el scene paso1-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPaso1(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
@@ -34,7 +38,11 @@ public class PassController {
         window.setScene(scene);
         window.show();
     }
-
+    /**
+     * Abre una nueva stage con el scene local-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goLocales(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("local-view.fxml"));

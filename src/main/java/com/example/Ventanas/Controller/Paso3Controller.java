@@ -41,6 +41,11 @@ public class Paso3Controller implements Initializable {
     protected FlowPane contenedor_3;
     @FXML
     protected Label per3;
+    /**
+     * Cambia la escena a pedido-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPedido(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pedido-view.fxml"));
@@ -53,6 +58,10 @@ public class Paso3Controller implements Initializable {
         window.setScene(scene);
         window.show();
     }
+    /**
+     * calcula el valor a pagar sumandolo con el valor en el valor en el paso 2
+     * @return precio actualizado
+     */
     public Double calcularPrecioRecolectado() {
         Double precio_recolectado = 0.00;
         Sabor exite = Paso2Controller.getValorseleccionado2();
@@ -68,6 +77,9 @@ public class Paso3Controller implements Initializable {
         cargarTopping();
         per3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
     }
+    /**
+     * carga las opciones de toppings en la escena
+     */
     public void cargarTopping(){
         contenedor_3.getChildren().clear();
         contenedor_3.setOrientation(Orientation.VERTICAL);
@@ -91,7 +103,10 @@ public class Paso3Controller implements Initializable {
     }
     private double totalTopping = 0.00;
     private static ArrayList<Topping> toppingsseleccionado = new ArrayList<>();
-
+    /**
+     * getter ArrayList de toppings seleccionados
+     * @return toppings seleccionados
+     */
     public static ArrayList<Topping> getToppingsseleccionado() {
         return toppingsseleccionado;
     }
@@ -99,7 +114,9 @@ public class Paso3Controller implements Initializable {
     public static void setToppingsseleccionado(ArrayList<Topping> toppingsseleccionado) {
         Paso3Controller.toppingsseleccionado = toppingsseleccionado;
     }
-
+    /**
+     * Formatea el precio a pagar para que tenga solo 2 decimales
+     */
     private DecimalFormat decimalFormat = new DecimalFormat("#.00");
     public void selectCheck(CheckBox checkBox, Topping t){
 
