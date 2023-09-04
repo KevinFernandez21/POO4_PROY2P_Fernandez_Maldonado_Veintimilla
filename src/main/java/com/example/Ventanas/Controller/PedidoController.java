@@ -116,7 +116,8 @@ public class PedidoController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/paso1.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Paso1");
@@ -291,7 +292,8 @@ public class PedidoController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pago-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/pago.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Pago");

@@ -12,6 +12,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
 import java.io.IOException;
+import java.net.URL;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
@@ -31,7 +33,8 @@ public class PassController {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/paso1.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Paso1");
@@ -49,7 +52,8 @@ public class PassController {
         Parent p1 = fxmlLoader.load();
 
         Scene scene = new Scene(p1);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/locales.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Stage window = new Stage();
 

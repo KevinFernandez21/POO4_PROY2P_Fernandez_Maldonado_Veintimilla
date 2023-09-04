@@ -51,7 +51,8 @@ public class Paso3Controller implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pedido-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-
+        URL cssFile = PrincipalApplication.class.getResource("/css/pedido.css");
+        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Pedido");
