@@ -5,39 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25562609-5af6-4c23-ab15-89b2b2c781df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/resources/imagenes/fondo1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso1Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/Paso3Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/VentanaPrincipal/PrincipalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso1-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso1-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso2-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso2-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso3-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/paso3-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/emergente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/emergente-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pass-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pass-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pedido-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pedido-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/emergente.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/final.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/locales.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/pago.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/paso1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/paso2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/paso3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/pass.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/pedido.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/principal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +138,7 @@
       <workItem from="1693781312242" duration="2610000" />
       <workItem from="1693804262877" duration="7090000" />
       <workItem from="1693834188657" duration="6412000" />
+      <workItem from="1693855811279" duration="3661000" />
     </task>
     <task id="LOCAL-00001" summary="medio terminado">
       <option name="closed" value="true" />

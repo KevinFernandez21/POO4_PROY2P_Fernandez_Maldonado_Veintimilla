@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contenedor_padre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PassController">
+<AnchorPane fx:id="contenedor_padre_pass" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PassController">
    <children>
-      <AnchorPane fx:id="contenedor_part1" prefHeight="350.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part1_pass" prefHeight="350.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lb_Welcome" layoutX="140.0" layoutY="150.0" text="Bienvenido, Cliente">
+            <Label fx:id="lb_Welcome_pass" layoutX="140.0" layoutY="150.0" text="Bienvenido, Cliente">
                <font>
                   <Font size="34.0" />
                </font></Label>
          </children></AnchorPane>
-      <AnchorPane fx:id="contenedor_part2" layoutY="350.0" prefHeight="450.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part2_pass" layoutY="350.0" prefHeight="450.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="btnPedido" layoutX="119.0" layoutY="211.0" mnemonicParsing="false" onAction="#goPaso1" prefHeight="80.0" prefWidth="342.0" text="Haz tu pedido" />
-            <Button fx:id="btnLocales" layoutX="119.0" layoutY="122.0" mnemonicParsing="false" onAction="#goLocales" prefHeight="68.0" prefWidth="342.0" text="Encuentre nuestros locales" />
+            <Button fx:id="btnPedido_pass" layoutX="119.0" layoutY="211.0" mnemonicParsing="false" onAction="#goPaso1" prefHeight="80.0" prefWidth="342.0" text="Haz tu pedido" />
+            <Button fx:id="btnLocales_pass" layoutX="119.0" layoutY="122.0" mnemonicParsing="false" onAction="#goLocales" prefHeight="68.0" prefWidth="342.0" text="Encuentre nuestros locales" />
          </children>
       </AnchorPane>
    </children>

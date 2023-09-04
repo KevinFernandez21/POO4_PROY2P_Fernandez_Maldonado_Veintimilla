@@ -97,6 +97,11 @@ public class PrincipalController {
             e.printStackTrace();
         }
     }
+    private static Usuario usuarioSeleccionado;
+
+    public static Usuario getUsuarioSeleccionado() {
+        return usuarioSeleccionado;
+    }
 
     @FXML
     void goPassVentana(ActionEvent event) throws IOException{
@@ -111,6 +116,12 @@ public class PrincipalController {
         String cuentaIngresada = TFusuario.getText().trim();
         String contraIngresada = TFcontrasena.getText().trim();
 
+        for(Usuario i: listaUsuarios){
+            if( (cuentaIngresada.equals(i.getUsuario())) && (contraIngresada.equals(i.getContrasena())) ){
+                usuarioSeleccionado = i;
+            }
+        }
+
         validacion = validarUsuario(cuentaIngresada, contraIngresada);
 
         if(validacion) {
@@ -123,8 +134,6 @@ public class PrincipalController {
 
             Scene scene2 = new Scene(root2);
             Stage stage2 = new Stage();
-
-
 
             stage2.initModality(Modality.NONE);
             stage2.setScene(scene2);

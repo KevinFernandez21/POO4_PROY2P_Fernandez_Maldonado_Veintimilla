@@ -2,6 +2,7 @@ package com.example.Ventanas.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
@@ -14,33 +15,38 @@ import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-public class PassController {
+public class PassController implements Initializable {
     @FXML
-    private AnchorPane contenedor_padre;
+    private AnchorPane contenedor_padre_pass;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private AnchorPane contenedor_part1_pass;
 
     @FXML
-    private AnchorPane contenedor_part2;
+    private AnchorPane contenedor_part2_pass;
 
     @FXML
-    private Label lb_Welcome;
+    private Label lb_Welcome_pass;
 
     @FXML
-    private Button btnLocales;
+    private Button btnLocales_pass;
 
     @FXML
-    private Button btnPedido;
+    private Button btnPedido_pass;
+    @FXML
     private Stage ventanaEmergente;
+
 
     public void setVentanaEmergente(Stage ventanaEmergente) {
         this.ventanaEmergente = ventanaEmergente;
     }
+
+
     @FXML
     void goPaso1(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
@@ -72,5 +78,10 @@ public class PassController {
 
         window.setScene(scene);
         window.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lb_Welcome_pass.setText("Bienvenido, "+ PrincipalController.getUsuarioSeleccionado().getNombre());
     }
 }
