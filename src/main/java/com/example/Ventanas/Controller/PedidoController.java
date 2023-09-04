@@ -64,6 +64,12 @@ public class PedidoController implements Initializable {
     @FXML
     private Button btnCancelar;
     static Double precio_recolectado = 0.00;
+    public static Pedido pedidoActual;
+
+    /**
+     * valida la decision de cancelar un sabor del pedido, tambien elimina el sabor especificado por el usuario
+     * @param event
+     */
     @FXML
     void AccionCancelar(ActionEvent event){
         Stage emergente = new Stage();
@@ -112,6 +118,13 @@ public class PedidoController implements Initializable {
         emergente.setScene(scene);
         emergente.show();
     }
+
+    /**
+     * retorna a la escena paso1-view
+     * @param event
+     * @param b
+     * @throws IOException
+     */
     void goPaso1(ActionEvent event,Button b) throws IOException {
         Stage stage = (Stage) b.getScene().getWindow();
         stage.close();
@@ -127,6 +140,10 @@ public class PedidoController implements Initializable {
         window.setScene(scene);
         window.show();
     }
+    /**
+     * Borra un sabor del pedido, solo lo hace si hay más de un sabor
+     * @param event
+     */
     @FXML
     void borrarSabor(ActionEvent event) {
         if (elementoSeleccionado != null) {
@@ -183,12 +200,20 @@ public class PedidoController implements Initializable {
             mostrarMensaje("Por favor, seleccione algo para eliminar.");
         }
     }
+
+    /**
+     * Actualizaq el precio del pedido después de eliminar un sabor
+     * @param d
+     */
     private void calcularPrecio(Double d) {
         precio_recolectado = precio_recolectado-d;
         pre4.setText("Valor a pagar: " + String.valueOf(precio_recolectado));
     }
 
-
+    /**
+     * invoca una ventana emergente
+     * @param mensaje
+     */
     private void mostrarMensaje(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Mensaje");
@@ -220,6 +245,9 @@ public class PedidoController implements Initializable {
     }
     private Label elementoSeleccionado = null;
 
+    /**
+     * carga el pedido del usuario en la escena
+     */
     public void cargarPedido(){
 
         pedidoArea.getChildren().clear();
@@ -252,6 +280,12 @@ public class PedidoController implements Initializable {
             topping1.setOnMouseClicked(MouseEvent->seleccionarElemento(topping1,Paso2Controller.getValorseleccionado1()));
         }
     }
+
+    /**
+     * añade un fondo gris a los elementos seleccionados por el usuario
+     * @param elemento
+     * @param o
+     */
     private void seleccionarElemento(Label elemento,Object o) {
         if (elementoSeleccionado != null) {
             elementoSeleccionado.setStyle("");
@@ -260,9 +294,16 @@ public class PedidoController implements Initializable {
         elemento.setStyle("-fx-background-color: lightgray;");
         elementoSeleccionado = elemento;
     }
+
+    /**
+     * cambia la escena a pago-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void toPago(ActionEvent event) throws IOException {
         Pedido pe = new Pedido(nombreCliente, precio_recolectado);
+        pedidoActual = pe;
         Pedido.escribirArchivo(pe);
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pago-view.fxml"));
         Parent p = fxmlLoader.load();

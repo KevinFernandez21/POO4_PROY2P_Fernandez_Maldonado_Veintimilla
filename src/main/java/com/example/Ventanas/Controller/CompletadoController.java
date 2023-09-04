@@ -1,26 +1,21 @@
 package com.example.Ventanas.Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 
-public class CompletadoController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
+
+public class CompletadoController implements Initializable {
     @FXML
-    private AnchorPane contenedor_padre;
+    private Label lbWelcome;
 
-    @FXML
-    private AnchorPane contenedor_part1;
 
-    @FXML
-    private AnchorPane contenedor_part2;
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        lbWelcome.setText("Tu pedido es el #"+pedidoActual.getIdpedido()+". Te llamaremos cuando este listo");
+    }
 
-    @FXML
-    private AnchorPane contenedor_part3;
-
-    @FXML
-    private Label lb_titulo;
-
-    @FXML
-    private Label lb_tiempo;
 }

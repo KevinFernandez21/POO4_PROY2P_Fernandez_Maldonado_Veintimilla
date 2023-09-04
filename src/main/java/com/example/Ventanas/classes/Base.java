@@ -25,6 +25,12 @@ public class Base {
     public Double getPrecio() {
         return precio;
     }
+
+    /**
+     * lee el archivo base.txt y retorna un arrayList de bases
+     * @return arrayList de bases
+     * @throws IOException
+     */
     public static ArrayList<Base> leerBase() throws IOException{
         Path file = Paths.get("src", "main","resources","Archivos","base.txt");
         ArrayList<Base> lista = new ArrayList<>();

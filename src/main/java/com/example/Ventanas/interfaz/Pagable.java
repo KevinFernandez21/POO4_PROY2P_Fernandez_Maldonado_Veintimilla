@@ -1,11 +1,11 @@
 package com.example.Ventanas.interfaz;
+import com.example.Ventanas.classes.Pago;
 import com.example.Ventanas.classes.Pedido;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 
 public interface Pagable {
     public static void guardarPedido(Pedido pedido) {
@@ -19,4 +19,18 @@ public interface Pagable {
             e.printStackTrace();
         }
     }
+
+    /**
+     * escribe en el archivo pagos.txt el pago realizado por el usuario
+     * @param pago pago realizado por el usuario
+     */
+    public static void generarTransaccion(Pago pago){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/Archivos/pagos.txt",true))){
+            bw.write(pago.toString());
+            bw.newLine();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }

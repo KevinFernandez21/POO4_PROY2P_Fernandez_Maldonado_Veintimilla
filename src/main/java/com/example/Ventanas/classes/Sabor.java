@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Sabor {
+public class Sabor implements Comparable<Sabor> {
     private String tipo;
     private Double precio;
 
@@ -17,10 +17,18 @@ public class Sabor {
         this.precio = precio;
     }
 
+    /**
+     * getter tipo de sabor
+     * @return tipo
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * getter tipo de precio
+     * @return precio
+     */
     public Double getPrecio() {
         return precio;
     }
@@ -39,5 +47,10 @@ public class Sabor {
             }
         }
         return lista;
+    }
+
+    @Override
+    public int compareTo(Sabor o) {
+        return this.tipo.compareTo(o.getTipo());
     }
 }
