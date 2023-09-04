@@ -32,19 +32,26 @@ import javafx.event.ActionEvent;
 
 public class Paso2Controller implements Initializable {
     @FXML
-    private Label welcomeText;
+    private Label lb_titulo;
+
+    @FXML
+    private AnchorPane contenedor_padre;
+
+    @FXML
+    private AnchorPane contenedor_part1;
+
+    @FXML
+    private AnchorPane contenedor_part3;
     
     @FXML
     private Button btnContinuar2;
 
     @FXML
-    private FlowPane container_paso2;
+    private FlowPane contenedor_part2;
 
     @FXML
     private Label pre2;
 
-    //externo
-    private ArrayList<Sabor> listaSabor;
 
     @FXML
     void toPaso3(ActionEvent event) throws IOException {
@@ -67,11 +74,11 @@ public class Paso2Controller implements Initializable {
         pre2.setText("Precio total: " + String.valueOf(Paso1Controller.getBaseSeleccionada().getPrecio()));
     }
     public void cargarSabor(){
-        container_paso2.getChildren().clear();
-        container_paso2.setOrientation(Orientation.HORIZONTAL);
+        contenedor_part2.getChildren().clear();
+        contenedor_part2.setOrientation(Orientation.HORIZONTAL);
         System.out.println("Se esta leyendo la base");
         VBox contenedor1 = new VBox();
-        container_paso2.getChildren().add(contenedor1);
+        contenedor_part2.getChildren().add(contenedor1);
 
         Label sabor1 = new Label("Sabor 1");
         contenedor1.getChildren().add(sabor1);
@@ -133,7 +140,7 @@ public class Paso2Controller implements Initializable {
                 e.printStackTrace();
             }
 
-            container_paso2.getChildren().add(contenedor2);
+            contenedor_part2.getChildren().add(contenedor2);
 
             cbsabores2.setOnAction(actionEvent -> {
                 Sabor saborSeleccionado2 = cbsabores2.getValue();

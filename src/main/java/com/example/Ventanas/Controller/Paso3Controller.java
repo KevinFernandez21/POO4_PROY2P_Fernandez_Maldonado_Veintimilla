@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -27,20 +28,25 @@ import javafx.scene.control.Label;
 
 public class Paso3Controller implements Initializable {
     @FXML
-    private Label welcomeText;
-    
-    @FXML
     private Button btnContinuar3;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    private Label lb_titulo;
 
     @FXML
-    protected FlowPane contenedor_3;
+    private AnchorPane contenedor_padre;
+
     @FXML
-    protected Label per3;
+    private AnchorPane contenedor_part1;
+
+    @FXML
+    protected FlowPane contenedor_part2;
+
+    @FXML
+    private AnchorPane contenedor_part3;
+
+    @FXML
+    protected Label pre3;
     @FXML
     void goPedido(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pedido-view.fxml"));
@@ -67,16 +73,16 @@ public class Paso3Controller implements Initializable {
     }
     public void initialize(URL location, ResourceBundle resources) {
         cargarTopping();
-        per3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
+        pre3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
     }
     public void cargarTopping(){
-        contenedor_3.getChildren().clear();
-        contenedor_3.setOrientation(Orientation.VERTICAL);
+        contenedor_part2.getChildren().clear();
+        contenedor_part2.setOrientation(Orientation.VERTICAL);
         try{
             ArrayList<Topping> listatopping = Topping.leerTopping();
             for(Topping topping: listatopping){
                 HBox contenedor = new HBox();
-                contenedor_3.getChildren().add(contenedor);
+                contenedor_part2.getChildren().add(contenedor);
 
                 CheckBox select = new CheckBox();
                 contenedor.getChildren().add(select);
@@ -113,6 +119,6 @@ public class Paso3Controller implements Initializable {
         }
         double total2 = totalTopping + calcularPrecioRecolectado();
         String formattedTotal = decimalFormat.format(total2);
-        per3.setText("Valor a pagar: " + formattedTotal);
+        pre3.setText("Valor a pagar: " + formattedTotal);
     }
 }

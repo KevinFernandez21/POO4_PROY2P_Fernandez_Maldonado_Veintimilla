@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.CompletadoController">
+<AnchorPane fx:id="contenedor_padre" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.CompletadoController">
    <children>
-      <AnchorPane prefHeight="300.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part1" prefHeight="300.0" prefWidth="1000.0">
          <children>
-            <Label layoutX="120.0" layoutY="142.0" text="Pedido Completado">
+            <Label fx:id="lb_titulo" layoutX="120.0" layoutY="142.0" text="Pedido Completado">
                <font>
                   <Font size="36.0" />
                </font></Label>
-            <Label layoutX="120.0" layoutY="229.0" text="Label" />
+            <Label layoutX="120.0" layoutY="229.0" prefHeight="17.0" prefWidth="447.0" text="Tu pedido es el #4525. Te llamaremos cuando este listo." />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="300.0" prefHeight="400.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part2" layoutY="300.0" prefHeight="400.0" prefWidth="1000.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="376.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="700.0" prefHeight="100.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part3" layoutY="700.0" prefHeight="100.0" prefWidth="1000.0">
          <children>
-            <Label layoutX="793.0" layoutY="42.0" text="Label" />
+            <Label fx:id="lb_tiempo" layoutX="643.0" layoutY="42.0" prefHeight="17.0" prefWidth="341.0" text="Esta ventana se cerrara en 5 segundos..." />
          </children>
       </AnchorPane>
    </children>

@@ -21,12 +21,12 @@ public class PrincipalApplication extends Application {
     public static String rutaImagen = "src/main/resources/Archivos/imagenes.icono/";
     @Override
     public void start(Stage PrincipalStage) throws IOException {
-        String cssFile = getClass().getResource("/css/principal.css").toExternalForm();
+        String cssFile = getClass().getResource("/css/style.css").toExternalForm();
         setUserAgentStylesheet(cssFile);
 
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("hello-view.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root,700,700);
+        Scene scene = new Scene(root);
         PrincipalStage.setScene(scene);
         PrincipalController controller =  fxmlLoader.getController();
         controller.setStage(PrincipalStage);

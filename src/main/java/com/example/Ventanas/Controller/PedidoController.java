@@ -6,6 +6,7 @@ import com.example.Ventanas.classes.Sabor;
 import com.example.Ventanas.classes.Topping;
 import javafx.animation.PauseTransition;
 import javafx.geometry.Pos;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -34,6 +35,21 @@ import static java.time.Duration.*;
 
 public class PedidoController implements Initializable {
     @FXML
+    private Label lb_titulo;
+
+    @FXML
+    private AnchorPane contenedor_padre;
+
+    @FXML
+    private AnchorPane contenedor_part1;
+
+    @FXML
+    private AnchorPane contenedor_part2;
+
+    @FXML
+    private AnchorPane contenedor_part3;
+
+    @FXML
     private Button btnContinuarPedido;
 
     @FXML
@@ -55,7 +71,7 @@ public class PedidoController implements Initializable {
         newroot.setAlignment(Pos.CENTER);
         Scene scene = new Scene(newroot,300,320);
 
-        Label part1 = new Label("¿Estas seguro de eliminar el componente?");
+        Label part1 = new Label("¿Estas seguro que quieres cancelar?");
         newroot.getChildren().add(part1);
 
         HBox part2 = new HBox();

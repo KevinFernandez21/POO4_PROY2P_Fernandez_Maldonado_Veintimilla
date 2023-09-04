@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
@@ -19,18 +20,41 @@ import javafx.scene.control.Button;
 
 public class PassController {
     @FXML
+    private AnchorPane contenedor_padre;
+
+    @FXML
+    private AnchorPane contenedor_part1;
+
+    @FXML
+    private AnchorPane contenedor_part2;
+
+    @FXML
+    private Label lb_Welcome;
+
+    @FXML
     private Button btnLocales;
 
     @FXML
     private Button btnPedido;
+    private Stage ventanaEmergente;
 
+    public void setVentanaEmergente(Stage ventanaEmergente) {
+        this.ventanaEmergente = ventanaEmergente;
+    }
     @FXML
     void goPaso1(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        Stage currentStage = (Stage) source.getScene().getWindow();
+        currentStage.close();
+
+        if (ventanaEmergente != null) {
+            ventanaEmergente.close();
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/paso1.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Paso1");
@@ -44,9 +68,6 @@ public class PassController {
         Parent p1 = fxmlLoader.load();
 
         Scene scene = new Scene(p1);
-        URL cssFile = PrincipalApplication.class.getResource("/css/locales.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
-        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Stage window = new Stage();
 
         window.setScene(scene);

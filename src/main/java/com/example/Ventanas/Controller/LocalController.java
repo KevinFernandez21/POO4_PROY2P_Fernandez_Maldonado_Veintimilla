@@ -35,8 +35,6 @@ import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFil
 import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaImagen;
 
 public class LocalController implements Initializable {
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private Pane pane;
@@ -47,10 +45,6 @@ public class LocalController implements Initializable {
     private int count = 0;
     private final Label text = new Label(Integer.toString(count));
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     private void incrementCount() {
         count++;

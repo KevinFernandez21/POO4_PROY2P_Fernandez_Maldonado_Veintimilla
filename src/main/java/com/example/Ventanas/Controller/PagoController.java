@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -32,7 +33,34 @@ import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFil
 
 public class PagoController implements Initializable  {
     @FXML
-    private Label welcomeText;
+    private VBox contenedor_padre;
+
+    @FXML
+    private AnchorPane contenedor_part1;
+
+    @FXML
+    private AnchorPane contenedor_part2;
+
+    @FXML
+    private AnchorPane contenedor_part3;
+
+    @FXML
+    private AnchorPane contenedor_part4;
+
+    @FXML
+    private Label lb_titulo;
+
+    @FXML
+    private Label lb_vap;
+
+    @FXML
+    private Label lb_at;
+
+    @FXML
+    private Label lb_iva;
+
+    @FXML
+    private Label lb_tap;
 
     @FXML
     private Button btnConfirmar;
@@ -63,11 +91,6 @@ public class PagoController implements Initializable  {
 
     private static Set<Integer> idPagos = new HashSet<>();
 
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     //Mi idea es que el boton continuar se sete al checkNull, donde si pasa todas las condiciones entonces se invoca a toCompletado
     void checkNull(){

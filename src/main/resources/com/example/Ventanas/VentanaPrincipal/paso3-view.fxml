@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.Paso3Controller">
+<AnchorPane fx:id="contenedor_padre" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.Paso3Controller">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="800.0">
+      <AnchorPane fx:id="contenedor_part1" prefHeight="200.0" prefWidth="800.0">
          <children>
-            <Label layoutX="107.0" layoutY="92.0" prefHeight="17.0" prefWidth="237.0" text="Paso3: Elige los toppings" />
+            <Label fx:id="lb_titulo" layoutX="107.0" layoutY="92.0" prefHeight="17.0" prefWidth="237.0" text="Paso3: Elige los toppings" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-6.0" layoutY="641.0" prefHeight="159.0" prefWidth="800.0">
+      <AnchorPane fx:id="contenedor_part3" layoutX="-6.0" layoutY="641.0" prefHeight="159.0" prefWidth="800.0">
          <children>
-            <Label fx:id="per3" layoutX="76.0" layoutY="71.0" prefHeight="17.0" prefWidth="208.0" text="Valor a pagar:" />
+            <Label fx:id="pre3" layoutX="76.0" layoutY="71.0" prefHeight="17.0" prefWidth="208.0" text="Valor a pagar:" />
             <Button fx:id="btnContinuar3" layoutX="701.0" layoutY="76.0" mnemonicParsing="false" onAction="#goPedido" text="Continuar" />
          </children>
       </AnchorPane>
-      <FlowPane fx:id="contenedor_3" layoutY="218.0" prefHeight="448.0" prefWidth="800.0" />
+      <FlowPane fx:id="contenedor_part2" layoutY="218.0" prefHeight="448.0" prefWidth="800.0" />
    </children>
 </AnchorPane>

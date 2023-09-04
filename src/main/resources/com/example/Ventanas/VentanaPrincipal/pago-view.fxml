@@ -9,19 +9,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
+<VBox fx:id="contenedor_padre" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
    <children>
-      <AnchorPane prefHeight="100.0" prefWidth="600.0">
+      <AnchorPane fx:id="contenedor_part1" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label layoutX="62.0" layoutY="57.0" text="Pago">
+            <Label fx:id="lb_titulo" layoutX="62.0" layoutY="57.0" text="Pago">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="48.0" prefWidth="605.0">
+      <AnchorPane fx:id="contenedor_part2" prefHeight="48.0" prefWidth="605.0">
          <children>
             <RadioButton fx:id="btEfectivo" layoutX="101.0" layoutY="16.0" mnemonicParsing="false" text="Efectivo">
                <toggleGroup>
@@ -31,17 +30,17 @@
             <RadioButton fx:id="btTarteja" layoutX="259.0" layoutY="16.0" mnemonicParsing="false" text="Tarjeta de crédito" toggleGroup="$ModoPago" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="209.0" prefWidth="605.0">
+      <AnchorPane fx:id="contenedor_part3" prefHeight="209.0" prefWidth="605.0">
          <children>
             <Label layoutX="54.0" layoutY="14.0" text="Detalle de pago">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="50.0" text="Valor a pagar:" />
-            <Label layoutX="54.0" layoutY="85.0" text="Adicional tarjeta:" />
-            <Label layoutX="54.0" layoutY="120.0" text="IVA:" />
-            <Label layoutX="54.0" layoutY="155.0" text="Total a pagar:" />
+            <Label fx:id="lb_vap" layoutX="54.0" layoutY="50.0" text="Valor a pagar:" />
+            <Label fx:id="lb_at" layoutX="54.0" layoutY="85.0" text="Adicional tarjeta:" />
+            <Label fx:id="lb_iva" layoutX="54.0" layoutY="120.0" text="IVA:" />
+            <Label fx:id="lb_tap" layoutX="54.0" layoutY="155.0" text="Total a pagar:" />
             <TextField fx:id="txtValor" editable="false" layoutX="150.0" layoutY="50.0" />
             <TextField fx:id="txtAdicional" editable="false" layoutX="150.0" layoutY="85.0" />
             <TextField fx:id="txtIva" editable="false" layoutX="150.0" layoutY="120.0" />
@@ -57,7 +56,7 @@
             </Label>
          </children>
       </VBox>
-      <AnchorPane prefHeight="113.0" prefWidth="600.0">
+      <AnchorPane fx:id="contenedor_part4" prefHeight="113.0" prefWidth="600.0">
          <children>
             <Button fx:id="btnConfirmar" layoutX="372.0" layoutY="44.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
             <Button layoutX="490.0" layoutY="44.0" mnemonicParsing="false" text="Cancelar" />

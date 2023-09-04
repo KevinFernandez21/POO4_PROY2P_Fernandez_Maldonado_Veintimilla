@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,18 +32,18 @@ import javafx.event.ActionEvent;
 
 public class Paso1Controller implements Initializable {
     @FXML
-    private Label welcomeText;
+    private Label lb_titulo;
     
     @FXML
     private Button btnContinuar1;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    private AnchorPane contenedor_part1;
 
     @FXML
-    private FlowPane container_paso1;
+    private AnchorPane contenedor_part3;
+    @FXML
+    private FlowPane contenedor_part2;
     @FXML
     private ToggleGroup group = new ToggleGroup();
     @FXML
@@ -70,8 +71,8 @@ public class Paso1Controller implements Initializable {
     }
 
     public void cargarBase(){
-        container_paso1.getChildren().clear();
-        container_paso1.setOrientation(Orientation.HORIZONTAL);
+        contenedor_part2.getChildren().clear();
+        contenedor_part2.setOrientation(Orientation.HORIZONTAL);
         System.out.println("Se esta leyendo la base");
         try{
             listaBase = Base.leerBase();
@@ -99,7 +100,7 @@ public class Paso1Controller implements Initializable {
 
 
                 Contenedor_base.setOnMouseClicked(MouseEvent -> onPrecioClick(base,Contenedor_base));
-                container_paso1.getChildren().add(Contenedor_base);
+                contenedor_part2.getChildren().add(Contenedor_base);
             }
         }catch (IOException e){
             e.printStackTrace();

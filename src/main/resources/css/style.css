@@ -1,0 +1,55 @@
+/*--------------ventanaprincipal--------------*/
+#contenedor_padre {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo1.jpg');
+}
+
+#lb_usuario,
+#lb_contrasena {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+
+#TFusuario,
+#TFcontrasena {
+    -fx-background-radius: 5px;
+    -fx-background-color:  #fff;
+    -fx-border-radius: 5px;
+    -fx-border-color:  #ff1493;
+    -fx-border-width: 2px;
+    -fx-pref-height: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+}
+
+#btnIniciarSesion{
+    -fx-background-color: linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    /* Agregar sombra al botón */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    /* Cambiar el color del texto (sombra) */
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+}
+#btnIniciarSesion:hover {
+    /*-fx-background-color: #ff71c9;*/
+    -fx-background-color: linear-gradient(to bottom, #f64284 0%, #fcc8ee 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+
+#lb_Incorrecto{
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+}
+/*--------------ventanapass--------------*/
