@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import com.example.Ventanas.classes.Sabor;
 import com.example.Ventanas.classes.incompleteStageException;
 import com.example.Ventanas.classes.metodoPago;
 
@@ -29,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
@@ -153,38 +155,46 @@ public class PagoController implements Initializable  {
         if(btTarteja_pago.isSelected()){
             CreditoBox_pago.getChildren().clear();
             Label lb1 = new Label("Inserte los datos de su tarjeta");
-            lb1.setFont(new Font("System Bold",12));
+            lb1.setFont(new Font("System Bold",30));
+            lb1.setId("lb_titulo_pago3");
             lb1.setPadding(new Insets(0,0,0,55));
             HBox linea1 = new HBox();
             Label lbName = new Label("Nombre:");
             lbName.setPadding(new Insets(0,0,0,55));
+            lbName.setId("lb_tap_pago");
             TextField tfName = new TextField();
-            tfName.maxWidth(50);
+            tfName.setId("txtValor_pago");
             linea1.getChildren().addAll(lbName,tfName);
-            linea1.setSpacing(65);
+
 
             HBox linea2 = new HBox();
             Label lbNumero = new Label("Numero:");
+            lbNumero.setId("lb_tap_pago");
             lbNumero.setPadding(new Insets(0,0,0,55));
             TextField tfNumero = new TextField();
-            tfNumero.maxWidth(50);
+            tfNumero.setId("txtValor_pago");
             linea2.getChildren().addAll(lbNumero,tfNumero);
-            linea2.setSpacing(65);
+
 
             HBox linea3 = new HBox();
             Label lbFecha = new Label("Fecha Caducidad:");
+            lbFecha.setId("lb_tap_pago");
             lbFecha.setPadding(new Insets(0,0,0,55));
+
             DatePicker dPicker = new DatePicker();
+            dPicker.setId("txtValor_pago");
             linea3.getChildren().addAll(lbFecha,dPicker);
-            linea3.setSpacing(20);
+
 
             HBox linea4 = new HBox();
             Label lbCVV = new Label("CVV");
             lbCVV.setPadding(new Insets(0,0,0,55));
+            lbCVV.setId("lb_tap_pago");
+
             TextField tfCVV = new TextField();
-            tfCVV.setMaxWidth(50);
+            tfCVV.setId("txtValor_pago");
             linea4.getChildren().addAll(lbCVV,tfCVV);
-            linea4.setSpacing(90);
+
 
             CreditoBox_pago.getChildren().addAll(lb1,linea1,linea2,linea3,linea4);
             CreditoBox_pago.setAlignment(Pos.CENTER_LEFT);
@@ -243,7 +253,86 @@ public class PagoController implements Initializable  {
         });
 
     }
+    void goPassVentana(ActionEvent event,Button b) throws IOException{
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        //stage.close();
 
+        FXMLLoader fxmlLoader2 = new FXMLLoader(PrincipalApplication.class.getResource("emergente-view.fxml"));
+        Parent root2 = fxmlLoader2.load();
+
+        Scene scene2 = new Scene(root2);
+        Stage stage2 = new Stage();
+
+        stage2.initModality(Modality.NONE);
+        stage2.setScene(scene2);
+        stage2.show();
+
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(PrincipalApplication.class.getResource("pass-view.fxml"));
+        Parent root1 = fxmlLoader1.load();
+
+        PassController passController = fxmlLoader1.getController();
+        passController.setVentanaEmergente(stage2);
+
+        Scene scene1 = new Scene(root1);
+        stage.setScene(scene1);
+    }
+    @FXML
+    void AccionCancelar(ActionEvent event){
+        Stage emergente = new Stage();
+        VBox newroot = new VBox();
+        Scene scene = new Scene(newroot);
+        newroot.setId("contenedor_padre_emergente");
+
+        Label part1 = new Label("¿Estas seguro que quieres cancelar?");
+        newroot.getChildren().add(part1);
+        part1.setId("msj_emergente");
+
+        HBox part2 = new HBox();
+        newroot.getChildren().add(part2);
+        part2.setId("part2_emergente");
+
+
+        Button confirmar = new Button("Aceptar");
+        confirmar.setId("bt1_emergente");
+        part2.getChildren().add(confirmar);
+        confirmar.setOnAction(ActionEvent-> {
+            Paso1Controller.setBaseSeleccionada(null);
+            Sabor exite2 = Paso2Controller.getValorseleccionado2();
+            Sabor exite1 = Paso2Controller.getValorseleccionado1();
+
+            if (exite1 == null) {
+                Paso2Controller.setValorseleccionado2(null);
+            }else if (exite2 == null) {
+                Paso2Controller.setValorseleccionado1(null);
+            }else {
+                Paso2Controller.setValorseleccionado1(null);
+                Paso2Controller.setValorseleccionado2(null);
+            }
+            Paso3Controller.getToppingsseleccionado().clear();
+
+            try {
+                goPassVentana(event,confirmar);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Stage stage = (Stage) confirmar.getScene().getWindow();
+            stage.close();
+        });
+
+        Button cancelar = new Button("Cancelar");
+        cancelar.setId("bt2_emergente");
+        part2.getChildren().add(cancelar);
+        cancelar.setOnAction(ActionEvent->{
+            Stage stage = (Stage) cancelar.getScene().getWindow();
+            stage.close();
+        });
+
+        emergente.setTitle("Confirmacion");
+        emergente.setScene(scene);
+        emergente.show();
+    }
     /**
      * Cambia la escena a completado-view
      * @param event
@@ -251,22 +340,22 @@ public class PagoController implements Initializable  {
      */
     @FXML
     void toCompletado(ActionEvent event) throws IOException {
-        try {
-            if (ModoPago_pago.getSelectedToggle() == null) {
-                throw new incompleteStageException("No se ha seleccionado nada.");
-            }else {
-                FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
-                Parent p = fxmlLoader.load();
-                Scene scene = new Scene(p);
+            try {
+                if(ModoPago_pago.getSelectedToggle()==null){
+                    throw new incompleteStageException("No se ha seleccionado nada.");
+                }else {
+                    FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
+                    Parent p = fxmlLoader.load();
+                    Scene scene = new Scene(p);
 
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setTitle("Completado");
-                window.setScene(scene);
-                window.show();
+                    window.setTitle("Completado");
+                    window.setScene(scene);
+                    window.show();
+                }
+            }catch (incompleteStageException e) {
+
             }
-        } catch (incompleteStageException e) {
-            // Aquí puedes manejar la excepción, mostrar una alerta o realizar cualquier acción necesaria.
         }
-    }
 }

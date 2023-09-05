@@ -174,6 +174,7 @@ public class LocalController implements Initializable {
                     parteC1.setPadding(new Insets(10,0,0,15));
 
                     Button cerrar = new Button("cerrar");
+                    cerrar.setId("bt1_emergente");
                     cerrar.setOnAction(new EventHandler<ActionEvent>(){
 
                         public void handle(ActionEvent event){

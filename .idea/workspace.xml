@@ -8,12 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_9_2023_21_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_9_2023_21_08__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/EmergenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/EmergenteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/CompletadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/LocalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PagoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PassController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/Controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Ventanas/classes/Pedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Archivos/pedidos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Archivos/pedidos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/completado-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/Ventanas/VentanaPrincipal/pago-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,24 +56,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Yo/Desktop/POOproject2/5ta parte - Kevin ccs final/POO4_PROY2P_Fernandez_Maldonado_Veintimilla",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yo/Desktop/POOproject2/5ta parte - Kevin ccs final/POO4_PROY2P_Fernandez_Maldonado_Veintimilla&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hombr\IdeaProjects\proyectoPOO\POO4_PROY2P_Fernandez_Maldonado_Veintimilla\src\main\resources\css\resources\imagenes" />
@@ -144,6 +147,7 @@
       <workItem from="1693855811279" duration="3661000" />
       <workItem from="1693868212647" duration="21479000" />
       <workItem from="1693917652104" duration="11909000" />
+      <workItem from="1693942301333" duration="11931000" />
     </task>
     <task id="LOCAL-00001" summary="medio terminado">
       <option name="closed" value="true" />

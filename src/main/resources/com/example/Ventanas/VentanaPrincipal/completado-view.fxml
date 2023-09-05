@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="contenedor_padre_final" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.CompletadoController">
+<AnchorPane fx:id="contenedor_padre_final" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.CompletadoController">
    <children>
-      <AnchorPane fx:id="contenedor_part1_final" prefHeight="300.0" prefWidth="1000.0">
+      <AnchorPane fx:id="contenedor_part1_final" prefHeight="100.0" prefWidth="800.0">
          <children>
-            <Label fx:id="lb_titulo_final" layoutX="120.0" layoutY="142.0" text="Pedido Completado">
+            <Label fx:id="lb_titulo_final" layoutX="46.0" layoutY="14.0" text="Pedido Completado">
                <font>
                   <Font size="36.0" />
                </font></Label>
-            <Label layoutX="120.0" layoutY="229.0" prefHeight="17.0" prefWidth="447.0" text="Tu pedido es el #4525. Te llamaremos cuando este listo." />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="contenedor_part2_final" layoutY="300.0" prefHeight="400.0" prefWidth="1000.0">
+      <FlowPane fx:id="contenedor_part2_final" alignment="CENTER" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="800.0">
          <children>
-            <ImageView fx:id="imagen_final" fitHeight="307.0" fitWidth="699.0" layoutX="151.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="orden_final" alignment="CENTER" layoutX="7.0" layoutY="25.0" prefHeight="17.0" prefWidth="800.0" text="Tu pedido es el #4525. Te llamaremos cuando este listo.">
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets></Label>
          </children>
-      </AnchorPane>
-      <AnchorPane fx:id="contenedor_part3_final" layoutY="700.0" prefHeight="100.0" prefWidth="1000.0">
+         <opaqueInsets>
+            <Insets top="50.0" />
+         </opaqueInsets>
+      </FlowPane>
+      <AnchorPane fx:id="contenedor_part3_final" layoutY="500.0" prefHeight="100.0" prefWidth="800.0">
          <children>
-            <Label fx:id="lb_tiempo_final" layoutX="643.0" layoutY="42.0" prefHeight="17.0" prefWidth="341.0" text="Esta ventana se cerrara en 5 segundos..." />
+            <Label fx:id="lb_tiempo_final" layoutX="151.0" layoutY="42.0" prefHeight="17.0" prefWidth="598.0" text="Esta ventana se cerrara en 5 segundos..." />
          </children>
       </AnchorPane>
    </children>

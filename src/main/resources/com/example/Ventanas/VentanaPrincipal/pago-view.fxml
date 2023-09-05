@@ -58,7 +58,7 @@
       <AnchorPane fx:id="contenedor_part4_pago" prefHeight="100.0" prefWidth="600.0">
          <children>
             <Button fx:id="btnConfirmar_pago" layoutX="303.0" layoutY="44.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
-            <Button fx:id="btnCancelar_pago" layoutX="455.0" layoutY="44.0" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="btnCancelar_pago" layoutX="455.0" layoutY="44.0" mnemonicParsing="false" onAction="#AccionCancelar" text="Cancelar" />
          </children>
       </AnchorPane>
    </children>

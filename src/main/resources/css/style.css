@@ -338,6 +338,9 @@
     -fx-transition: all 0.7s;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
 }
+
+
+
 /*--------------ventanapedido--------------*/
 #contenedor_padre_pedido {
     -fx-pref-width: 800px;
@@ -472,13 +475,44 @@
     display: flex;
     align-items: center;
     gap: 10px; /* Espacio entre los radio buttons y el texto */
-    font-size: 16px;
+    font-size: 16px; /* Tamaño del texto */
     color: #333; /* Color del texto */
+
+    /* Ajustar el tamaño de los radio buttons */
+    -fx-font-size: 16px; /* Tamaño de fuente para los radio buttons */
+    -fx-padding: 5px;
+}
+.radio-button .radio,
+.radio-button:selected .radio {
+    -fx-pref-width: 15px;
+    -fx-pref-height: 15px;
+    -fx-background-color: transparent; /* Fondo transparente */
+    -fx-border-color: #0a0a0a; /* Color del borde */
+    -fx-border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    -fx-padding: 0px; /* Espacio alrededor del círculo */
+    -fx-background-radius: 50%; /* Bordes redondeados para el fondo del círculo */
+}
+.radio-button:selected .radio > .dot {
+    -fx-background-color: #0a0a0a; /* Color de relleno cuando está seleccionado */
+    -fx-background-radius: 50%; /* Bordes redondeados para el círculo interior */
+}
+
+.radio-button .text {
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+    /* Cambia la fuente */
+    -fx-font-size: 16px; /* Cambia el tamaño de fuente */
+    -fx-fill: #0a0a0a; /* Cambia el color del texto */
 }
 
 #lb_titulo_pago2{
     -fx-font-weight: bold;
-    -fx-font-size:25px;
+    -fx-font-size:30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#lb_titulo_pago3{
+    -fx-font-weight: bold;
+    -fx-font-size:30px;
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
 }
 #nombre_info_pago{
@@ -503,7 +537,7 @@
 #lb_at_pago,
 #lb_iva_pago,
 #lb_tap_pago{
-
+    -fx-pref-width: 200px;
     -fx-font-weight: bold;
     -fx-font-size: 15px;
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
@@ -551,29 +585,74 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
 }
 /*--------------ventanafinal--------------*/
-
+#contenedor_padre_final{
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo3.jpg');
+}
+#orden_final{
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: ea4b8d;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 2);
+}
+#lb_titulo_final{
+    -fx-font-size: 45px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#lb_tiempo_final{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
 /*--------------ventanaAlerta--------------*/
 .alert {
     -fx-padding: 20px;
     -fx-pref-height: 140px;
     -fx-pref-width: 180px;
     -fx-alignment: center;
-    -fx-background-color: #f2f2f2; /* Cambia el color de fondo */
-}
-.alert .header-panel {
-    -fx-background-color: #0073e6; /* Cambia el color de fondo del encabezado */
-    -fx-text-fill: white; /* Cambia el color del texto del encabezado */
-}
-.alert .content {
-    -fx-font-size: 14px; /* Cambia el tamaño de la fuente del contenido */
-    -fx-text-fill: #333333; /* Cambia el color del texto del contenido */
-}
-.custom-alert .button-ok {
-    -fx-background-color: #0078d4;
-    -fx-text-fill: white;
+    -fx-text-fill: #0a0a0a;
+    -fx-background-color: #e8e8e8; /* Cambia el color de fondo */
 }
 
-/* Estilo para el botón enfocado */
-.custom-alert .button-ok:focused {
-    -fx-background-color: #0055a4;
+/*--------------ventanaEmergente--------------*/
+#contenedor_padre_emergente{
+    -fx-alignment: center;
+    -fx-pref-height: 300px;
+    -fx-pref-width: 400px;
+    -fx-spacing: 10px; /* Espacio entre los elementos dentro del contenedor padre */
+    -fx-padding: 20px; /* Espacio alrededor del contenedor padre */
 }
+#msj_emergente{
+    -fx-font-size: 18px;
+    -fx-text-fill: #333;
+    -fx-pref-height: 40px;
+}
+#part2_emergente{
+    -fx-alignment: center;
+}
+#bt1_emergente,
+#bt2_emergente{
+    -fx-background-color: linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:22px;
+    -fx-transition: all 0.10s;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+
+    -fx-pref-width: 100px;
+    -fx-pref-height: 40px;
+}
+

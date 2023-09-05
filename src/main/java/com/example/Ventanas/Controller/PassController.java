@@ -53,9 +53,9 @@ public class PassController implements Initializable {
         Stage currentStage = (Stage) source.getScene().getWindow();
         currentStage.close();
 
-//        if (ventanaEmergente != null) {
-//            ventanaEmergente.close();
-//        }
+        if (ventanaEmergente != null) {
+            ventanaEmergente.close();
+        }
 
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();

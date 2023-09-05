@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,15 +77,19 @@ public class PedidoController implements Initializable {
         Stage emergente = new Stage();
         VBox newroot = new VBox();
         newroot.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(newroot,300,320);
+        Scene scene = new Scene(newroot);
+        newroot.setId("contenedor_padre_emergente");
 
         Label part1 = new Label("¿Estas seguro que quieres cancelar?");
         newroot.getChildren().add(part1);
+        part1.setId("msj_emergente");
 
         HBox part2 = new HBox();
+        part2.setId("part2_emergente");
         newroot.getChildren().add(part2);
 
         Button confirmar = new Button("Aceptar");
+        confirmar.setId("bt1_emergente");
         part2.getChildren().add(confirmar);
         confirmar.setOnAction(ActionEvent-> {
             Paso1Controller.setBaseSeleccionada(null);
@@ -102,13 +107,16 @@ public class PedidoController implements Initializable {
             Paso3Controller.getToppingsseleccionado().clear();
 
             try {
-                goPaso1(event,confirmar);
+                goPassVentana(event,confirmar);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            Stage stage = (Stage) confirmar.getScene().getWindow();
+            stage.close();
         });
 
         Button cancelar = new Button("Cancelar");
+        cancelar.setId("bt2_emergente");
         part2.getChildren().add(cancelar);
         cancelar.setOnAction(ActionEvent->{
             Stage stage = (Stage) cancelar.getScene().getWindow();
@@ -116,6 +124,7 @@ public class PedidoController implements Initializable {
         });
 
         emergente.setTitle("Confirmacion");
+
         emergente.setScene(scene);
         emergente.show();
     }
@@ -126,18 +135,30 @@ public class PedidoController implements Initializable {
      * @param b
      * @throws IOException
      */
-    void goPaso1(ActionEvent event,Button b) throws IOException {
-        Stage stage = (Stage) b.getScene().getWindow();
-        stage.close();
+    void goPassVentana(ActionEvent event,Button b) throws IOException{
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        //stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader2 = new FXMLLoader(PrincipalApplication.class.getResource("emergente-view.fxml"));
+        Parent root2 = fxmlLoader2.load();
 
-        window.setTitle("Paso1");
-        window.setScene(scene);
-        window.show();
+        Scene scene2 = new Scene(root2);
+        Stage stage2 = new Stage();
+
+        stage2.initModality(Modality.NONE);
+        stage2.setScene(scene2);
+        stage2.show();
+
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(PrincipalApplication.class.getResource("pass-view.fxml"));
+        Parent root1 = fxmlLoader1.load();
+
+        PassController passController = fxmlLoader1.getController();
+        passController.setVentanaEmergente(stage2);
+
+        Scene scene1 = new Scene(root1);
+        stage.setScene(scene1);
     }
     /**
      * Borra un sabor del pedido, solo lo hace si hay más de un sabor
@@ -149,15 +170,19 @@ public class PedidoController implements Initializable {
             Stage emergente = new Stage();
             VBox newroot = new VBox();
             newroot.setAlignment(Pos.CENTER);
-            Scene scene = new Scene(newroot,300,320);
+            Scene scene = new Scene(newroot);
+            newroot.setId("contenedor_padre_emergente");
 
             Label part1 = new Label("¿Estas seguro de eliminar el componente?");
             newroot.getChildren().add(part1);
+            part1.setId("msj_emergente");
 
             HBox part2 = new HBox();
+            part2.setId("part2_emergente");
             newroot.getChildren().add(part2);
 
             Button confirmar = new Button("Aceptar");
+            confirmar.setId("bt1_emergente");
             part2.getChildren().add(confirmar);
             confirmar.setOnAction(ActionEvent->{
                 if (elementoSeleccionado.getText().startsWith("Sabor")) {
@@ -187,6 +212,7 @@ public class PedidoController implements Initializable {
                 stage.close();
             });
             Button cancelar = new Button("Cancelar");
+            cancelar.setId("bt1_emergente");
             part2.getChildren().add(cancelar);
             cancelar.setOnAction(ActionEvent->{
                 Stage stage = (Stage) cancelar.getScene().getWindow();
