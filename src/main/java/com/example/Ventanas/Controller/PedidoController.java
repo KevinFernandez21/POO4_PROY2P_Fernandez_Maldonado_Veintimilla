@@ -311,6 +311,7 @@ public class PedidoController implements Initializable {
         Pedido pe = new Pedido(nombreCliente, precio_recolectado);
         pedidoActual = pe;
         Pedido.escribirArchivo(pe);
+        pe.escribirBin();
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pago-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);

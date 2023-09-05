@@ -31,6 +31,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
 import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFiles;
 
 public class PagoController implements Initializable  {
@@ -139,11 +140,6 @@ public class PagoController implements Initializable  {
             String total = txtTotal_pago.getText();
             int idP = genIdPago();
 
-
-
-
-
-
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -212,9 +208,9 @@ public class PagoController implements Initializable  {
         Double iva = subtotal*0.12;
         Double total = subtotal + iva + extra;
 
-        txtAdicional_pago.setText(String.format("%,.2f", extra));
-        txtIva_pago.setText(String.format("%,.2f", iva));
-        txtTotal_pago.setText(String.format("%,.2f", total));
+        txtAdicional_pago.setText(String.format("%.2f", extra));
+        txtIva_pago.setText(String.format("%.2f", iva));
+        txtTotal_pago.setText(String.format("%.2f", total));
 
     }
 
@@ -223,6 +219,7 @@ public class PagoController implements Initializable  {
         btEfectivo_pago.getStyleClass().add("radio-button-container");
         btTarteja_pago.getStyleClass().add("radio-button-container");
         //  txtValor.setText("4.12");
+        txtValor_pago.setText(String.valueOf(pedidoActual.getTotal()));
         btTarteja_pago.setOnMouseClicked(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent event){
                 parteCredito();
@@ -237,7 +234,7 @@ public class PagoController implements Initializable  {
                 if(btEfectivo_pago.isSelected()){
                     CreditoBox_pago.getChildren().clear();
                     Label lb2 = new Label("Acercate a caja para pagar tu pedido");
-                    lb2.setFont(new Font("System Bold Italic",16));
+                    lb2.setFont(new Font("System Bold Italic",31));
                     CreditoBox_pago.getChildren().add(lb2);
                     CreditoBox_pago.setAlignment(Pos.CENTER);
                 }

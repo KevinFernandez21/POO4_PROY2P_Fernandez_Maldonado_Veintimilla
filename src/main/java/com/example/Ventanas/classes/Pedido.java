@@ -68,6 +68,19 @@ public class Pedido implements Pagable,Serializable{
         }
     }
 
+    public void escribirBin() {
+        //Path ruta = Paths.get("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin");
+        try(ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin"))){
+            ob.writeObject(this);
+            ob.flush();
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e2){
+            e2.printStackTrace();
+        }
+
+    }
+
     /**
      * lee el archivo de pedidos.txt y retorna un arrayList de pedidos
      * @return arrayList de pedidos
