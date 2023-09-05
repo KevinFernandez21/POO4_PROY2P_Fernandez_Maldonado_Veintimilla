@@ -34,7 +34,7 @@ public class Topping {
     }
 
     public String toString() {
-        return tipo + " -$" +precio;
+        return "  "+ tipo + " -$" +precio;
     }
 
     /**

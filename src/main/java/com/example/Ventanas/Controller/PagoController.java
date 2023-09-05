@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
+
+import com.example.Ventanas.classes.incompleteStageException;
 import com.example.Ventanas.classes.metodoPago;
 
 import javafx.event.ActionEvent;
@@ -32,69 +34,74 @@ import javafx.stage.Stage;
 import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFiles;
 
 public class PagoController implements Initializable  {
-    @FXML
-    private VBox contenedor_padre;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private VBox contenedor_padre_pago;
 
     @FXML
-    private AnchorPane contenedor_part2;
+    private AnchorPane contenedor_part1_pago;
 
     @FXML
-    private AnchorPane contenedor_part3;
+    private AnchorPane contenedor_part2_pago;
 
     @FXML
-    private AnchorPane contenedor_part4;
+    private AnchorPane contenedor_part3_pago;
 
     @FXML
-    private Label lb_titulo;
+    private AnchorPane contenedor_part4_pago;
 
     @FXML
-    private Label lb_vap;
+    private Label lb_titulo_pago;
 
     @FXML
-    private Label lb_at;
+    private Label lb_vap_pago;
 
     @FXML
-    private Label lb_iva;
+    private Label lb_at_pago;
 
     @FXML
-    private Label lb_tap;
+    private Label lb_iva_pago;
 
     @FXML
-    private Button btnConfirmar;
+    private Label lb_tap_pago;
+    @FXML
+    private Button btnCancelar_pago;
+    @FXML
+    private Button btnConfirmar_pago;
 
     @FXML
-    private RadioButton btTarteja;
+    private RadioButton btTarteja_pago;
 
     @FXML
-    private RadioButton btEfectivo;
+    private RadioButton btEfectivo_pago;
 
     @FXML
-    private TextField txtValor;
+    private TextField txtValor_pago;
 
     @FXML
-    private TextField txtAdicional;
+    private TextField txtAdicional_pago;
 
     @FXML
-    private TextField txtIva;
+    private TextField txtIva_pago;
 
     @FXML
-    private TextField txtTotal;
+    private TextField txtTotal_pago;
 
     @FXML
-    private ToggleGroup ModoPago;
+    private ToggleGroup ModoPago_pago;
 
     @FXML
-    private VBox CreditoBox;
+    private VBox CreditoBox_pago;
+
+
+
 
     private static Set<Integer> idPagos = new HashSet<>();
 
 
     //Mi idea es que el boton continuar se sete al checkNull, donde si pasa todas las condiciones entonces se invoca a toCompletado
     void checkNull(){
-        RadioButton tipoPago = (RadioButton) ModoPago.getSelectedToggle();
+        RadioButton tipoPago = (RadioButton) ModoPago_pago.getSelectedToggle();
         if(tipoPago == null){
             System.out.println("Excepcion aca");
         }else if (tipoPago.getText().equals("Efectivo")){
@@ -126,10 +133,10 @@ public class PagoController implements Initializable  {
      */
     private void writePago(){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFiles+"pagos.txt",true))){
-            String valor = txtValor.getText();
-            String plus = txtAdicional.getText();
-            String iva = txtIva.getText();
-            String total = txtTotal.getText();
+            String valor = txtValor_pago.getText();
+            String plus = txtAdicional_pago.getText();
+            String iva = txtIva_pago.getText();
+            String total = txtTotal_pago.getText();
             int idP = genIdPago();
 
 
@@ -147,8 +154,8 @@ public class PagoController implements Initializable  {
      * Genera un layout con textFields para la transacción con tarjeta de credito, se genera solo si el usuario selecciono la opcion de pago con tarjeta de credito
      */
     private void parteCredito(){
-        if(btTarteja.isSelected()){
-            CreditoBox.getChildren().clear();
+        if(btTarteja_pago.isSelected()){
+            CreditoBox_pago.getChildren().clear();
             Label lb1 = new Label("Inserte los datos de su tarjeta");
             lb1.setFont(new Font("System Bold",12));
             lb1.setPadding(new Insets(0,0,0,55));
@@ -183,9 +190,9 @@ public class PagoController implements Initializable  {
             linea4.getChildren().addAll(lbCVV,tfCVV);
             linea4.setSpacing(90);
 
-            CreditoBox.getChildren().addAll(lb1,linea1,linea2,linea3,linea4);
-            CreditoBox.setAlignment(Pos.CENTER_LEFT);
-            CreditoBox.setSpacing(10);
+            CreditoBox_pago.getChildren().addAll(lb1,linea1,linea2,linea3,linea4);
+            CreditoBox_pago.setAlignment(Pos.CENTER_LEFT);
+            CreditoBox_pago.setSpacing(10);
         }
 
     }
@@ -196,7 +203,7 @@ public class PagoController implements Initializable  {
      * @param conCredito
      */
     private void calcDatos(boolean conCredito){
-        Double subtotal = Double.parseDouble(txtValor.getText());
+        Double subtotal = Double.parseDouble(txtValor_pago.getText());
         Double extra = 0.0;
         if(conCredito){
             extra = (subtotal+extra)*0.10;
@@ -205,17 +212,18 @@ public class PagoController implements Initializable  {
         Double iva = subtotal*0.12;
         Double total = subtotal + iva + extra;
 
-        txtAdicional.setText(String.format("%,.2f", extra));
-        txtIva.setText(String.format("%,.2f", iva));
-        txtTotal.setText(String.format("%,.2f", total));
+        txtAdicional_pago.setText(String.format("%,.2f", extra));
+        txtIva_pago.setText(String.format("%,.2f", iva));
+        txtTotal_pago.setText(String.format("%,.2f", total));
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-
+        btEfectivo_pago.getStyleClass().add("radio-button-container");
+        btTarteja_pago.getStyleClass().add("radio-button-container");
         //  txtValor.setText("4.12");
-        btTarteja.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        btTarteja_pago.setOnMouseClicked(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent event){
                 parteCredito();
                 calcDatos(true);
@@ -223,15 +231,15 @@ public class PagoController implements Initializable  {
 
         });
 
-        btEfectivo.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        btEfectivo_pago.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if(btEfectivo.isSelected()){
-                    CreditoBox.getChildren().clear();
+                if(btEfectivo_pago.isSelected()){
+                    CreditoBox_pago.getChildren().clear();
                     Label lb2 = new Label("Acercate a caja para pagar tu pedido");
                     lb2.setFont(new Font("System Bold Italic",16));
-                    CreditoBox.getChildren().add(lb2);
-                    CreditoBox.setAlignment(Pos.CENTER);
+                    CreditoBox_pago.getChildren().add(lb2);
+                    CreditoBox_pago.setAlignment(Pos.CENTER);
                 }
                 calcDatos(false);
             }
@@ -246,17 +254,22 @@ public class PagoController implements Initializable  {
      */
     @FXML
     void toCompletado(ActionEvent event) throws IOException {
+        try {
+            if (ModoPago_pago.getSelectedToggle() == null) {
+                throw new incompleteStageException("No se ha seleccionado nada.");
+            }else {
+                FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
+                Parent p = fxmlLoader.load();
+                Scene scene = new Scene(p);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/final.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setTitle("Completado");
-        window.setScene(scene);
-        window.show();
-
+                window.setTitle("Completado");
+                window.setScene(scene);
+                window.show();
+            }
+        } catch (incompleteStageException e) {
+            // Aquí puedes manejar la excepción, mostrar una alerta o realizar cualquier acción necesaria.
+        }
     }
 }

@@ -82,6 +82,6 @@ public class PassController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lb_Welcome_pass.setText("Bienvenido, "+ PrincipalController.getUsuarioSeleccionado().getNombre());
+        lb_Welcome_pass.setText("Bienvenid@ "+ PrincipalController.getUsuarioSeleccionado().getNombre());
     }
 }

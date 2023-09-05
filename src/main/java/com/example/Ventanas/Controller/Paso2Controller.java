@@ -2,6 +2,7 @@ package com.example.Ventanas.Controller;
 
 import com.example.Ventanas.classes.Base;
 import com.example.Ventanas.classes.Sabor;
+import com.example.Ventanas.classes.incompleteStageException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,58 +33,69 @@ import javafx.event.ActionEvent;
 
 public class Paso2Controller implements Initializable {
     @FXML
-    private Label lb_titulo;
+    private Label lb_titulo_paso2;
 
     @FXML
-    private AnchorPane contenedor_padre;
+    private AnchorPane contenedor_padre_paso2;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private AnchorPane contenedor_part1_paso2;
 
     @FXML
-    private AnchorPane contenedor_part3;
+    private AnchorPane contenedor_part3_paso2;
     
     @FXML
-    private Button btnContinuar2;
+    private Button btnContinuar2_paso2;
 
     @FXML
-    private FlowPane contenedor_part2;
+    private FlowPane contenedor_part2_paso2;
 
     @FXML
-    private Label pre2;
+    private Label pre2_paso2;
 
 
     @FXML
     void toPaso3(ActionEvent event) throws IOException {
+        try {
+            if (valorseleccionado1==null) {
+                throw new incompleteStageException("No se ha seleccionado nada.");
+            }else {
+                FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso3-view.fxml"));
+                Parent p = fxmlLoader.load();
+                Scene scene = new Scene(p);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso3-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/paso3.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setTitle("Paso3");
-        window.setScene(scene);
-        window.show();
-        System.out.println();
+                window.setTitle("Paso3");
+                window.setScene(scene);
+                window.show();
+                System.out.println();
+            }
+        } catch (incompleteStageException e) {
+            // Aquí puedes manejar la excepción, mostrar una alerta o realizar cualquier acción necesaria.
+        }
 
     }
     public void initialize(URL location, ResourceBundle resources) {
         cargarSabor();
-        pre2.setText("Precio total: " + String.valueOf(Paso1Controller.getBaseSeleccionada().getPrecio()));
+        pre2_paso2.setText("Precio total: " + String.valueOf(Paso1Controller.getBaseSeleccionada().getPrecio()));
     }
     public void cargarSabor(){
-        contenedor_part2.getChildren().clear();
-        contenedor_part2.setOrientation(Orientation.HORIZONTAL);
+        contenedor_part2_paso2.getChildren().clear();
+        contenedor_part2_paso2.setOrientation(Orientation.HORIZONTAL);
+        contenedor_part2_paso2.setHgap(15);
         System.out.println("Se esta leyendo la base");
         VBox contenedor1 = new VBox();
-        contenedor_part2.getChildren().add(contenedor1);
+        contenedor_part2_paso2.getChildren().add(contenedor1);
 
         Label sabor1 = new Label("Sabor 1");
+        sabor1.setId("lb_sabor");
         contenedor1.getChildren().add(sabor1);
+        contenedor1.setId("contenedor2_paso2");
 
         ComboBox cbsabores1 = new ComboBox();
+        cbsabores1.setId("cb_sabores");
+        cbsabores1.getStyleClass().add("cb-sabores");
         try{
             ArrayList<Sabor> sabores = Sabor.leerSabores();
             cbsabores1.getItems().addAll(sabores);
@@ -127,10 +139,14 @@ public class Paso2Controller implements Initializable {
 
         if (Cb1.getUserData() == null) {
             VBox contenedor2 = new VBox();
+            contenedor2.setId("contenedor2_paso2");
             Label sabor2 = new Label("Sabor 2");
             contenedor2.getChildren().add(sabor2);
+            sabor2.setId("lb_sabor");
 
             ComboBox<Sabor> cbsabores2 = new ComboBox<>();
+            cbsabores2.setId("cb_sabores");
+            cbsabores2.getStyleClass().add("cb-sabores");
             contenedor2.getChildren().add(cbsabores2);
 
             try {
@@ -140,7 +156,7 @@ public class Paso2Controller implements Initializable {
                 e.printStackTrace();
             }
 
-            contenedor_part2.getChildren().add(contenedor2);
+            contenedor_part2_paso2.getChildren().add(contenedor2);
 
             cbsabores2.setOnAction(actionEvent -> {
                 Sabor saborSeleccionado2 = cbsabores2.getValue();
@@ -156,10 +172,10 @@ public class Paso2Controller implements Initializable {
     }
 
     public void actualizarLabel1() {
-        pre2.setText("Precio total: " + String.valueOf(valorSeleccionadoCb1));
+        pre2_paso2.setText("Valor a pagar: $" + String.valueOf(valorSeleccionadoCb1));
     }
     public void actualizarLabel2() {
-        pre2.setText("Precio total: " + String.valueOf(valorSeleccionadoCb2));
+        pre2_paso2.setText("Valor a pagar: $" + String.valueOf(valorSeleccionadoCb2));
     }
 
 }

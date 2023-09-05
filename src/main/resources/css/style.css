@@ -53,13 +53,527 @@
     -fx-font-weight: bold;
 }
 /*--------------ventanapass--------------*/
+#contenedor_padre_pass {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo2.jpg');
+}
+#lb_Welcome_pass{
+    -fx-font-size: 60px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#btnPedido_pass,
+#btnLocales_pass{
+    -fx-background-color: linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:22px;
+    -fx-transition: all 0.10s;
 
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px;
+}
+#btnPedido_pass:hover,
+#btnLocales_pass:hover{
+    /*-fx-background-color: #ff71c9;*/
+    -fx-background-color: linear-gradient(to bottom, #f64284 0%, #fcc8ee 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
 /*--------------ventanlocales--------------*/
 /*--------------ventanaemergente--------------*/
 /*--------------ventanapaso1--------------*/
+#contenedor_padre_paso1 {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo3.jpg');
+}
+
+#contenedor_part2_paso1{
+    -fx-alignment: center;
+
+}
+
+#contenedor_base{
+    -fx-alignment: center;
+    -fx-background-radius: 5px;
+    -fx-background-color: #fff;
+    -fx-transition: all 0.10s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+#contenedor_base:hover{
+
+}
+
+#img_paso1{
+}
+
+#contenedor_base_part1{
+    -fx-alignment: center;
+}
+
+#lb_tipo_paso1{
+
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+#lb_precio_paso1{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+#lb_titulo_paso1{
+    -fx-font-size: 45px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+
+#pre1_paso1{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+
+}
+
+#btnContinuar1_paso1{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    /* Agregar sombra al botón */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    /* Cambiar el color del texto (sombra) */
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnContinuar1_paso1:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+
+
 /*--------------ventanapaso2--------------*/
+#contenedor_padre_paso2 {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo3.jpg');
+}
+#contenedor_part1_paso2{
+
+}
+#contenedor2_paso2{
+    -fx-alignment: center;
+}
+#lb_sabor{
+    -fx-background-color: linear-gradient(to bottom, #f64284 0%, #fcc8ee 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+    -fx-font-size:40px;
+    -fx-font-weight: bold;
+}
+#cb_sabores{
+    -fx-font-size:20px;
+    -fx-font-weight: bold;
+    -fx-background-color: #f2f2f2;
+    -fx-text-fill: #333;
+    -fx-padding: 5 10 5 10;
+    -fx-border-color: #999;
+    -fx-border-width: 2px;
+    -fx-effect: innershadow(gaussian, #333, 10, 0.5, 0, 0);
+    -fx-background-radius: 5;
+}
+.cb-sabores .list-view {
+    -fx-background-color: #f2f2f2;
+    -fx-border-color: #999;
+}
+.cb-sabores .list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333;
+}
+.cb-sabores .list-view .list-cell:hover {
+    -fx-background-color: #FFE5B4;
+}
+
+#lb_titulo_paso2{
+    -fx-font-size: 45px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#pre2_paso2{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#btnContinuar2_paso2{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    /* Agregar sombra al botón */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    /* Cambiar el color del texto (sombra) */
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnContinuar2_paso2:hover{
+     -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+     -fx-transition: all 0.7s;
+     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+ }
+
+
 /*--------------ventanapaso3--------------*/
+#contenedor_padre_paso3 {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo3.jpg');
+}
+#lb_titulo_paso3{
+    -fx-font-size: 38px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#contenedor_part1_paso3{
+
+}
+#contenedor_part2_paso3{
+
+}
+#contenedor_part3_paso3{
+
+}
+#contenedor_topping{
+}
+#check_paso3{
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-border-width: 2px;
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
+    -fx-stroke: black;
+    fx-background-radius: 9px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#check_paso3 .box {
+    -fx-background-color: #fff;
+}
+#check_paso3 .mark {
+    -fx-background-color: #fff;
+}
+#check_paso3:selected {
+    -fx-background-color: #FFE5B4;
+}
+#check_paso3:selected .mark {
+    -fx-background-color: #fff;
+}
+
+#lb_etiqueta{
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: ea4b8d;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 2);
+}
+#pre3_paso3{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#btnContinuar3_paso3{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnContinuar3_paso3:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
 /*--------------ventanapedido--------------*/
+#contenedor_padre_pedido {
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-background-image: url('resources/imagenes/fondo3.jpg');
+}
+#contenedor_part1_pedido {
+
+}
+#contenedor_part2_pedido {
+
+}
+#contenedor_part3_pedido {
+
+}
+#btneliminar_pedido{
+    -fx-background-color: linear-gradient(to bottom, #ff0466 0%, #ff9fe3 100%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:22px;
+    -fx-transition: all 0.10s;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btneliminar_pedido:hover{
+    /*-fx-background-color: #ff71c9;*/
+    -fx-background-color: linear-gradient(to bottom, #f64284 0%, #fcc8ee 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+#pedidoArea_pedido{
+    -fx-background-color: #fff;
+}
+#lb_titulo_pedido{
+    -fx-font-size: 50px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#pre4_pedido{
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#btnContinuarPedido_pedido{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnContinuarPedido_pedido:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+#btnCancelar_pedido{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnCancelar_pedido:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+#lb_aparicion{
+    -fx-pref-width: 500px;
+    -fx-font-size:23px;
+    -fx-font-weight: bold;
+}
+#lb_aparicion:hover{
+    -fx-background-color: #e1dfdf;
+}
+
+
+
 /*--------------ventanapago--------------*/
+#lb_titulo_pago{
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 6px;
+    -fx-stroke-type: outside;
+    -fx-text-fill:  #fff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+    -fx-inner-shadow: none;
+}
+#contenedor_padre_pago{
+    -fx-background-color: #e1dfdf;
+
+}
+#contenedor_part1_pago{
+    -fx-background-color: #e1dfdf;
+    -fx-background-image: url('resources/imagenes/header.jpg');
+    -fx-alignment: center;
+}
+#contenedor_part2_pago{
+    -fx-background-color: linear-gradient(to bottom, #FFE5B4 0%, #fcc8ee 100%);
+}
+#contenedor_part3_pago{
+    -fx-background-color: #fcc8ee;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+}
+.radio-button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los radio buttons y el texto */
+    font-size: 16px;
+    color: #333; /* Color del texto */
+}
+
+#lb_titulo_pago2{
+    -fx-font-weight: bold;
+    -fx-font-size:25px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#nombre_info_pago{
+    -fx-text-fill: #000;
+    -fx-font-weight: bold;
+    -fx-font-size:30px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#txtValor_pago,
+#txtAdicional_pago,
+#txtIva_pago,
+#txtTotal_pago{
+    -fx-background-radius: 5px;
+    -fx-background-color:  #fff;
+    -fx-border-radius: 5px;
+    -fx-border-color:  #ff1493;
+    -fx-border-width: 2px;
+    -fx-pref-height: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-2, 2);
+}
+#lb_vap_pago,
+#lb_at_pago,
+#lb_iva_pago,
+#lb_tap_pago{
+
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.75), 0, 0,-3, 3);
+}
+#CreditoBox_pago{
+    -fx-background-image: url('resources/imagenes/main.jpg');
+}
+#contenedor_part4_pago{
+    -fx-background-image: url('resources/imagenes/footer.jpg');
+}
+#btnCancelar_pago{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnCancelar_pago:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
+#btnConfirmar_pago{
+    -fx-background-color: linear-gradient(to bottom, #694207 31%, #b97206 78%);
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size:18px;
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-3, 3);
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+#btnConfirmar_pago:hover{
+    -fx-background-color: linear-gradient(to bottom, #965e07 31%, #ecb664 78%);
+    -fx-transition: all 0.7s;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0, 0,-5, 5);
+}
 /*--------------ventanafinal--------------*/
 
+/*--------------ventanaAlerta--------------*/
+.alert {
+    -fx-padding: 20px;
+    -fx-pref-height: 140px;
+    -fx-pref-width: 180px;
+    -fx-alignment: center;
+    -fx-background-color: #f2f2f2; /* Cambia el color de fondo */
+}
+.alert .header-panel {
+    -fx-background-color: #0073e6; /* Cambia el color de fondo del encabezado */
+    -fx-text-fill: white; /* Cambia el color del texto del encabezado */
+}
+.alert .content {
+    -fx-font-size: 14px; /* Cambia el tamaño de la fuente del contenido */
+    -fx-text-fill: #333333; /* Cambia el color del texto del contenido */
+}
+.custom-alert .button-ok {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+}
+
+/* Estilo para el botón enfocado */
+.custom-alert .button-ok:focused {
+    -fx-background-color: #0055a4;
+}

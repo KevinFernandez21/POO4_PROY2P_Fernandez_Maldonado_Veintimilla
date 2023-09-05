@@ -1,9 +1,11 @@
 package com.example.Ventanas.Controller;
 
 import com.example.Ventanas.classes.Base;
+import com.example.Ventanas.classes.incompleteStageException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -32,79 +34,105 @@ import javafx.event.ActionEvent;
 
 public class Paso1Controller implements Initializable {
     @FXML
-    private Label lb_titulo;
+    private AnchorPane contenedor_padre_paso1;
+
+    @FXML
+    private Label lb_titulo_paso1;
     
     @FXML
-    private Button btnContinuar1;
+    private Button btnContinuar1_paso1;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private AnchorPane contenedor_part1_paso1;
 
     @FXML
-    private AnchorPane contenedor_part3;
+    private AnchorPane contenedor_part3_paso1;
     @FXML
-    private FlowPane contenedor_part2;
+    private FlowPane contenedor_part2_paso1;
     @FXML
     private ToggleGroup group = new ToggleGroup();
     @FXML
-    private Label pre1;
+    private Label pre1_paso1;
 
     //externo
     private ArrayList<Base> listaBase;
     @FXML
     void goPaso2(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
-        Parent p = fxmlLoader.load();
-        Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/paso2.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        try {
+            if (baseSeleccionada==null) {
+                throw new incompleteStageException("No se ha seleccionado nada.");
+            }else {
+                FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso2-view.fxml"));
+                Parent p = fxmlLoader.load();
+                Scene scene = new Scene(p);
 
-        window.setTitle("Paso2");
-        window.setScene(scene);
-        window.show();
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+                window.setTitle("Paso2");
+                window.setScene(scene);
+                window.show();
+            }
+        } catch (incompleteStageException e) {
+            // Aquí puedes manejar la excepción, mostrar una alerta o realizar cualquier acción necesaria.
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarBase();
+
     }
 
-    public void cargarBase(){
-        contenedor_part2.getChildren().clear();
-        contenedor_part2.setOrientation(Orientation.HORIZONTAL);
-        System.out.println("Se esta leyendo la base");
-        try{
-            listaBase = Base.leerBase();
-            for(Base base: listaBase){
-                Path file = Paths.get("src", "main","resources","Archivos","imagenes","base",base.getTipo()+".png");
+    public void cargarBase() {
 
-                VBox Contenedor_base = new VBox();
+            contenedor_part2_paso1.getChildren().clear();
+            contenedor_part2_paso1.setOrientation(Orientation.HORIZONTAL);
+            contenedor_part2_paso1.setHgap(13);
 
-                HBox part1 = new HBox();
+            try{
+                listaBase = Base.leerBase();
+                for(Base base: listaBase){
+                    Path file = Paths.get("src", "main","resources","Archivos","imagenes","base",base.getTipo()+".png");
+                    Insets padding = new Insets(10);
 
-                Contenedor_base.getChildren().add(part1);
+                    VBox Contenedor_base = new VBox();
+                    Contenedor_base.setSpacing(10);
 
-                FileInputStream fis = new FileInputStream(file.toFile());
-                ImageView imagenView = new ImageView(new Image(fis));
-                part1.getChildren().add(imagenView);
-                imagenView.setFitWidth(80);
-                imagenView.setFitHeight(80);
+                    Contenedor_base.setId("contenedor_base");
+                    Contenedor_base.setPrefWidth(220);
+                    Contenedor_base.setPrefHeight(120);
+                    Contenedor_base.setPadding(padding);
 
-                Label tipo = new Label(base.getTipo());
-                part1.getChildren().add(tipo);
+                    HBox part1 = new HBox();
+                    part1.setId("contenedor_base_part1");
+                    part1.setSpacing(10);
 
-                Label precio = new Label(String.valueOf(base.getPrecio()));
-                Contenedor_base.getChildren().add(precio);
-                part1.getChildren().addAll();
+                    Contenedor_base.getChildren().add(part1);
+
+                    FileInputStream fis = new FileInputStream(file.toFile());
+                    ImageView imagenView = new ImageView(new Image(fis));
+                    part1.getChildren().add(imagenView);
+                    imagenView.setId("img_paso1");
+                    imagenView.setFitWidth(120);
+                    imagenView.setFitHeight(120);
+
+                    Label tipo = new Label(base.getTipo());
+                    part1.getChildren().add(tipo);
+                    tipo.setId("lb_tipo_paso1");
+
+                    Label precio = new Label("$"+String.valueOf(base.getPrecio()));
+                    Contenedor_base.getChildren().add(precio);
+                    precio.setId("lb_precio_paso1");
+                    part1.getChildren().addAll();
 
 
-                Contenedor_base.setOnMouseClicked(MouseEvent -> onPrecioClick(base,Contenedor_base));
-                contenedor_part2.getChildren().add(Contenedor_base);
+
+                    Contenedor_base.setOnMouseClicked(MouseEvent -> onPrecioClick(base,Contenedor_base));
+                    contenedor_part2_paso1.getChildren().add(Contenedor_base);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
             }
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
     private static Base baseSeleccionada;
 
@@ -118,7 +146,7 @@ public class Paso1Controller implements Initializable {
 
     private VBox elementoSeleccionado;
     private void onPrecioClick(Base base,VBox contenedorBase){
-        pre1.setText("Precio: " + String.valueOf(base.getPrecio()));
+        pre1_paso1.setText("Valor a pagar: $" + String.valueOf(base.getPrecio()));
 
         if (elementoSeleccionado != null) {
             elementoSeleccionado.setStyle(null);
@@ -127,6 +155,6 @@ public class Paso1Controller implements Initializable {
 
         elementoSeleccionado = contenedorBase;
         baseSeleccionada = base;
-        contenedorBase.setStyle("-fx-background-color: orange;");
+        contenedorBase.setStyle("-fx-background-color: #FFE5B4;");
     }
 }

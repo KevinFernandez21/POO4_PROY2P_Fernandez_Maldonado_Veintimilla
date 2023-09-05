@@ -1,65 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="contenedor_padre" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
+<VBox fx:id="contenedor_padre_pago" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Ventanas.Controller.PagoController">
    <children>
-      <AnchorPane fx:id="contenedor_part1" prefHeight="100.0" prefWidth="600.0">
+      <AnchorPane fx:id="contenedor_part1_pago" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label fx:id="lb_titulo" layoutX="62.0" layoutY="57.0" text="Pago">
+            <Label fx:id="lb_titulo_pago" layoutX="213.0" prefHeight="92.0" prefWidth="179.0" text="Pago">
                <font>
-                  <Font size="24.0" />
+                  <Font size="63.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="contenedor_part2" prefHeight="48.0" prefWidth="605.0">
+      <AnchorPane fx:id="contenedor_part2_pago" prefHeight="50.0" prefWidth="600.0">
          <children>
-            <RadioButton fx:id="btEfectivo" layoutX="101.0" layoutY="16.0" mnemonicParsing="false" text="Efectivo">
+            <RadioButton fx:id="btEfectivo_pago" layoutX="101.0" layoutY="16.0" mnemonicParsing="false" text="Efectivo">
                <toggleGroup>
-                  <ToggleGroup fx:id="ModoPago" />
+                  <ToggleGroup fx:id="ModoPago_pago" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="btTarteja" layoutX="259.0" layoutY="16.0" mnemonicParsing="false" text="Tarjeta de crédito" toggleGroup="$ModoPago" />
+            <RadioButton fx:id="btTarteja_pago" layoutX="259.0" layoutY="16.0" mnemonicParsing="false" text="Tarjeta de crédito" toggleGroup="$ModoPago_pago" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="contenedor_part3" prefHeight="209.0" prefWidth="605.0">
+      <AnchorPane fx:id="contenedor_part3_pago" prefHeight="200.0" prefWidth="600.0">
          <children>
-            <Label layoutX="54.0" layoutY="14.0" text="Detalle de pago">
+            <Label fx:id="lb_titulo_pago2" layoutX="35.0" layoutY="-12.0" text="Detalle de pago">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="lb_vap" layoutX="54.0" layoutY="50.0" text="Valor a pagar:" />
-            <Label fx:id="lb_at" layoutX="54.0" layoutY="85.0" text="Adicional tarjeta:" />
-            <Label fx:id="lb_iva" layoutX="54.0" layoutY="120.0" text="IVA:" />
-            <Label fx:id="lb_tap" layoutX="54.0" layoutY="155.0" text="Total a pagar:" />
-            <TextField fx:id="txtValor" editable="false" layoutX="150.0" layoutY="50.0" />
-            <TextField fx:id="txtAdicional" editable="false" layoutX="150.0" layoutY="85.0" />
-            <TextField fx:id="txtIva" editable="false" layoutX="150.0" layoutY="120.0" />
-            <TextField fx:id="txtTotal" editable="false" layoutX="150.0" layoutY="155.0" />
+            <Label fx:id="lb_vap_pago" layoutX="54.0" layoutY="42.0" prefHeight="17.0" prefWidth="128.0" text="Valor a pagar:" />
+            <Label fx:id="lb_at_pago" layoutX="54.0" layoutY="83.0" prefHeight="17.0" prefWidth="128.0" text="Adicional tarjeta:" />
+            <Label fx:id="lb_iva_pago" layoutX="54.0" layoutY="121.0" prefHeight="17.0" prefWidth="128.0" text="IVA:" />
+            <Label fx:id="lb_tap_pago" layoutX="54.0" layoutY="163.0" prefHeight="17.0" prefWidth="128.0" text="Total a pagar:" />
+            <TextField fx:id="txtValor_pago" editable="false" layoutX="200.0" layoutY="41.0" />
+            <TextField fx:id="txtAdicional_pago" editable="false" layoutX="200.0" layoutY="82.0" />
+            <TextField fx:id="txtIva_pago" editable="false" layoutX="200.0" layoutY="122.0" />
+            <TextField fx:id="txtTotal_pago" editable="false" layoutX="200.0" layoutY="162.0" />
          </children>
+         <padding>
+            <Insets bottom="30.0" left="10.0" right="30.0" top="30.0" />
+         </padding>
       </AnchorPane>
-      <VBox fx:id="CreditoBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="CreditoBox_pago" alignment="CENTER" prefHeight="200.0" prefWidth="600.0">
          <children>
-            <Label text="Acercate a caja para pagar tu pedido">
+            <Label fx:id="nombre_info_pago" text="Acercate a caja para pagar tu pedido">
                <font>
-                  <Font name="System Bold Italic" size="16.0" />
+                  <Font name="System Bold Italic" size="31.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <AnchorPane fx:id="contenedor_part4" prefHeight="113.0" prefWidth="600.0">
+      <AnchorPane fx:id="contenedor_part4_pago" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btnConfirmar" layoutX="372.0" layoutY="44.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
-            <Button layoutX="490.0" layoutY="44.0" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="btnConfirmar_pago" layoutX="303.0" layoutY="44.0" mnemonicParsing="false" onAction="#toCompletado" text="Confirmar" />
+            <Button fx:id="btnCancelar_pago" layoutX="455.0" layoutY="44.0" mnemonicParsing="false" text="Cancelar" />
          </children>
       </AnchorPane>
    </children>

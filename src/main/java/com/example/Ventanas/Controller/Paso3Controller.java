@@ -2,10 +2,12 @@ package com.example.Ventanas.Controller;
 
 import com.example.Ventanas.classes.Sabor;
 import com.example.Ventanas.classes.Topping;
+import com.example.Ventanas.classes.incompleteStageException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,32 +30,31 @@ import javafx.scene.control.Label;
 
 public class Paso3Controller implements Initializable {
     @FXML
-    private Button btnContinuar3;
+    private Button btnContinuar3_paso3;
 
     @FXML
-    private Label lb_titulo;
+    private Label lb_titulo_paso3;
 
     @FXML
-    private AnchorPane contenedor_padre;
+    private AnchorPane contenedor_padre_paso3;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private AnchorPane contenedor_part1_paso3;
 
     @FXML
-    protected FlowPane contenedor_part2;
+    protected FlowPane contenedor_part2_paso3;
 
     @FXML
-    private AnchorPane contenedor_part3;
+    private AnchorPane contenedor_part3_paso3;
 
     @FXML
-    protected Label pre3;
+    protected Label pre3_paso3;
     @FXML
     void goPedido(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pedido-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/pedido.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Pedido");
@@ -73,21 +74,26 @@ public class Paso3Controller implements Initializable {
     }
     public void initialize(URL location, ResourceBundle resources) {
         cargarTopping();
-        pre3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
+        pre3_paso3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
     }
     public void cargarTopping(){
-        contenedor_part2.getChildren().clear();
-        contenedor_part2.setOrientation(Orientation.VERTICAL);
+        contenedor_part2_paso3.getChildren().clear();
+        contenedor_part2_paso3.setOrientation(Orientation.VERTICAL);
         try{
             ArrayList<Topping> listatopping = Topping.leerTopping();
             for(Topping topping: listatopping){
                 HBox contenedor = new HBox();
-                contenedor_part2.getChildren().add(contenedor);
+                contenedor.setId("contenedor_topping");
+                contenedor.setAlignment(Pos.CENTER_LEFT);
+                contenedor_part2_paso3.getChildren().add(contenedor);
 
                 CheckBox select = new CheckBox();
+                select.setId("check_paso3");
                 contenedor.getChildren().add(select);
 
+
                 Label etiqueta = new Label(topping.toString());
+                etiqueta.setId("lb_etiqueta");
                 contenedor.getChildren().add(etiqueta);
 
                 select.setOnAction(actionEvent -> selectCheck(select,topping));
@@ -107,7 +113,7 @@ public class Paso3Controller implements Initializable {
         Paso3Controller.toppingsseleccionado = toppingsseleccionado;
     }
 
-    private DecimalFormat decimalFormat = new DecimalFormat("#.00");
+    private DecimalFormat decimalFormat = new DecimalFormat("#.0");
     public void selectCheck(CheckBox checkBox, Topping t){
 
         if (checkBox.isSelected()) {
@@ -119,6 +125,6 @@ public class Paso3Controller implements Initializable {
         }
         double total2 = totalTopping + calcularPrecioRecolectado();
         String formattedTotal = decimalFormat.format(total2);
-        pre3.setText("Valor a pagar: " + formattedTotal);
+        pre3_paso3.setText("Valor a pagar: " + formattedTotal);
     }
 }

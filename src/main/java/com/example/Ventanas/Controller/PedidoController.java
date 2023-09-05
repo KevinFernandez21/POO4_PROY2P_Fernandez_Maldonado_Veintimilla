@@ -27,6 +27,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -35,34 +36,34 @@ import static java.time.Duration.*;
 
 public class PedidoController implements Initializable {
     @FXML
-    private Label lb_titulo;
+    private Label lb_titulo_pedido;
 
     @FXML
-    private AnchorPane contenedor_padre;
+    private AnchorPane contenedor_padre_pedido;
 
     @FXML
-    private AnchorPane contenedor_part1;
+    private AnchorPane contenedor_part1_pedido;
 
     @FXML
-    private AnchorPane contenedor_part2;
+    private AnchorPane contenedor_part2_pedido;
 
     @FXML
-    private AnchorPane contenedor_part3;
+    private AnchorPane contenedor_part3_pedido;
 
     @FXML
-    private Button btnContinuarPedido;
+    private Button btnContinuarPedido_pedido;
 
     @FXML
-    private Button btneliminar;
+    private Button btneliminar_pedido;
 
     @FXML
-    private FlowPane pedidoArea;
+    private FlowPane pedidoArea_pedido;
 
     @FXML
-    private Label pre4;
+    private Label pre4_pedido;
 
     @FXML
-    private Button btnCancelar;
+    private Button btnCancelar_pedido;
     static Double precio_recolectado = 0.00;
     public static Pedido pedidoActual;
 
@@ -132,8 +133,6 @@ public class PedidoController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("paso1-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/paso1.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Paso1");
@@ -166,7 +165,7 @@ public class PedidoController implements Initializable {
                         if (Paso2Controller.getValorseleccionado2() != null) {
                             calcularPrecio(Paso2Controller.getValorseleccionado1().getPrecio());
                             Paso2Controller.setValorseleccionado1(null);
-                            pedidoArea.getChildren().remove(elementoSeleccionado);
+                            pedidoArea_pedido.getChildren().remove(elementoSeleccionado);
                             elementoSeleccionado = null;
                         } else {
                             mostrarMensaje("Debe haber al menos un sabor seleccionado.");
@@ -175,7 +174,7 @@ public class PedidoController implements Initializable {
                         if (Paso2Controller.getValorseleccionado1() != null) {
                             calcularPrecio(Paso2Controller.getValorseleccionado2().getPrecio());
                             Paso2Controller.setValorseleccionado2(null);
-                            pedidoArea.getChildren().remove(elementoSeleccionado);
+                            pedidoArea_pedido.getChildren().remove(elementoSeleccionado);
                             elementoSeleccionado = null;
                         } else {
                             mostrarMensaje("Debe haber al menos un sabor seleccionado.");
@@ -200,14 +199,15 @@ public class PedidoController implements Initializable {
             mostrarMensaje("Por favor, seleccione algo para eliminar.");
         }
     }
-
+    private DecimalFormat decimalFormat = new DecimalFormat("#.0");
     /**
      * Actualizaq el precio del pedido después de eliminar un sabor
      * @param d
      */
     private void calcularPrecio(Double d) {
         precio_recolectado = precio_recolectado-d;
-        pre4.setText("Valor a pagar: " + String.valueOf(precio_recolectado));
+        String formattedTotal = decimalFormat.format(precio_recolectado);
+        pre4_pedido.setText("Valor a pagar: " + String.valueOf(formattedTotal));
     }
 
     /**
@@ -241,7 +241,8 @@ public class PedidoController implements Initializable {
         for(Topping topping:Paso3Controller.getToppingsseleccionado()){
             precio_recolectado += topping.getPrecio();
         }
-        pre4.setText("Valor a pagar: " + String.valueOf(precio_recolectado));
+        String formattedTotal = decimalFormat.format(precio_recolectado);
+        pre4_pedido.setText("Valor a pagar: " + String.valueOf(formattedTotal));
     }
     private Label elementoSeleccionado = null;
 
@@ -250,25 +251,29 @@ public class PedidoController implements Initializable {
      */
     public void cargarPedido(){
 
-        pedidoArea.getChildren().clear();
-        pedidoArea.setOrientation(Orientation.VERTICAL);
+        pedidoArea_pedido.getChildren().clear();
+        pedidoArea_pedido.setOrientation(Orientation.VERTICAL);
 
         Label base = new Label("Base: "+Paso1Controller.getBaseSeleccionada().getTipo());
-        pedidoArea.getChildren().add(base);
+        pedidoArea_pedido.getChildren().add(base);
+        base.setId("lb_aparicion");
         base.setOnMouseClicked(MouseEvent->seleccionarElemento(base,Paso1Controller.getBaseSeleccionada()));
 
         Sabor exite = Paso2Controller.getValorseleccionado2();
         if (exite == null) {
             Label sabor1 = new Label("Sabor1: "+Paso2Controller.getValorseleccionado1().getTipo());
-            pedidoArea.getChildren().add(sabor1);
+            pedidoArea_pedido.getChildren().add(sabor1);
+            sabor1.setId("lb_aparicion");
             sabor1.setOnMouseClicked(MouseEvent->seleccionarElemento(sabor1,Paso2Controller.getValorseleccionado1()));
         } else {
             Label sabor1 = new Label("Sabor1: "+Paso2Controller.getValorseleccionado1().getTipo());
-            pedidoArea.getChildren().add(sabor1);
+            pedidoArea_pedido.getChildren().add(sabor1);
+            sabor1.setId("lb_aparicion");
             sabor1.setOnMouseClicked(MouseEvent->seleccionarElemento(sabor1,Paso2Controller.getValorseleccionado1()));
 
             Label sabor2 = new Label("Sabor2: "+Paso2Controller.getValorseleccionado2().getTipo());
-            pedidoArea.getChildren().add(sabor2);
+            pedidoArea_pedido.getChildren().add(sabor2);
+            sabor2.setId("lb_aparicion");
             sabor2.setOnMouseClicked(MouseEvent->seleccionarElemento(sabor2,Paso2Controller.getValorseleccionado1()));
         }
 
@@ -276,7 +281,8 @@ public class PedidoController implements Initializable {
         for (Topping topping: Paso3Controller.getToppingsseleccionado()){
             num++;
             Label topping1 = new Label("Topping "+num+": "+topping.getTipo());
-            pedidoArea.getChildren().add(topping1);
+            pedidoArea_pedido.getChildren().add(topping1);
+            topping1.setId("lb_aparicion");
             topping1.setOnMouseClicked(MouseEvent->seleccionarElemento(topping1,Paso2Controller.getValorseleccionado1()));
         }
     }
@@ -291,7 +297,7 @@ public class PedidoController implements Initializable {
             elementoSeleccionado.setStyle("");
         }
 
-        elemento.setStyle("-fx-background-color: lightgray;");
+        elemento.setStyle("-fx-background-color: #FFE5B4;");
         elementoSeleccionado = elemento;
     }
 
@@ -308,8 +314,7 @@ public class PedidoController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pago-view.fxml"));
         Parent p = fxmlLoader.load();
         Scene scene = new Scene(p);
-        URL cssFile = PrincipalApplication.class.getResource("/css/pago.css");
-        scene.getStylesheets().add(cssFile.toExternalForm());
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setTitle("Pago");
