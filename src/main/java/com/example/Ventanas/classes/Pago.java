@@ -1,5 +1,11 @@
 package com.example.Ventanas.classes;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,11 +21,23 @@ public class Pago {
     private static Set<Integer> idPedidos = new HashSet<>();
 
     private int genIdPago(){
-        int num;
+        Path ruta = Paths.get("src/main/resources/Archivos/pagos.txt");
+        ArrayList<Integer> idArchivo = new ArrayList<>();
+        int num = 0;
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){
+            String ln = br.readLine();
+            while(ln != null){
+                String datos[] = ln.split(",");
+                idArchivo.add(Integer.parseInt(datos[0]));
+                ln = br.readLine();
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
         do{
-            num = (int) (Math.random()*800)+100;
+            num = (int) (Math.random()*8000)+1000;
             System.out.println(num);
-        }while(idPedidos.contains(num));
+        }while(idPedidos.contains(num)||idArchivo.contains(num));
 
         idPedidos.add(num);
         return num;

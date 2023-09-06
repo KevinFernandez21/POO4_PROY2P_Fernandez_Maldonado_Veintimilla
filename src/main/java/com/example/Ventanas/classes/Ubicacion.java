@@ -15,6 +15,7 @@ public class Ubicacion {
     private String horario;
     private ImageView ImageHelado;
     private static Image icono;
+    private int segundos;
 
     public Ubicacion(Double coordenadaX, Double getCoordenaday, String nombre, String horario){
         this.coordenadaX = coordenadaX;
@@ -27,6 +28,7 @@ public class Ubicacion {
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }
+        this.segundos = 5;
     }
     /**
      * getter coordenadaX
@@ -63,4 +65,8 @@ public class Ubicacion {
     public ImageView getImg(){
         return this.ImageHelado;
     }
+
+    public int getSegundos(){return this.segundos;}
+
+    public void setSegundos(int seg){this.segundos = seg;}
 }

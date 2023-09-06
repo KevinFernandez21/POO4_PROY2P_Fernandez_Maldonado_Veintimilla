@@ -27,6 +27,7 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -98,6 +99,7 @@ public class Paso2Controller implements Initializable {
         cbsabores1.getStyleClass().add("cb-sabores");
         try{
             ArrayList<Sabor> sabores = Sabor.leerSabores();
+            Collections.sort(sabores);
             cbsabores1.getItems().addAll(sabores);
         }catch (IOException e){
             e.printStackTrace();
@@ -151,6 +153,7 @@ public class Paso2Controller implements Initializable {
 
             try {
                 ArrayList<Sabor> sabores = Sabor.leerSabores();
+                Collections.sort(sabores);
                 cbsabores2.getItems().addAll(sabores);
             } catch (IOException e) {
                 e.printStackTrace();

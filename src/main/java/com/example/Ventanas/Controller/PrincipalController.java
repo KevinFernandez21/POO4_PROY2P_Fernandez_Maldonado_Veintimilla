@@ -3,6 +3,7 @@ package com.example.Ventanas.Controller;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
 import com.example.Ventanas.classes.Usuario;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
 import com.example.Ventanas.classes.*;
+import javafx.stage.WindowEvent;
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.nio.file.Files;
@@ -137,6 +140,15 @@ public class PrincipalController {
 
             stage2.initModality(Modality.NONE);
             stage2.setScene(scene2);
+
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>(){
+
+                public void handle(WindowEvent event1){
+                    stage2.close();
+                }
+
+            });
+
             stage2.show();
 
 

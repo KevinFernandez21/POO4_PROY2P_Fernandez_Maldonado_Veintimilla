@@ -1,5 +1,6 @@
 package com.example.Ventanas.Controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -10,12 +11,14 @@ import javafx.scene.layout.FlowPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
 
 public class CompletadoController implements Initializable {
     @FXML
-    private Label lbWelcome;
+    private Label orden_final;
 
     @FXML
     private AnchorPane contenedor_padre_final;
@@ -34,6 +37,7 @@ public class CompletadoController implements Initializable {
 
     @FXML
     private Label lb_tiempo_final;
+    int segundos = 5;
 
 
 
@@ -44,6 +48,27 @@ public class CompletadoController implements Initializable {
         contenedor_part2_final.getChildren().add(imageView);
         imageView.setFitWidth(450);
         imageView.setFitHeight(250);
-    }
+        orden_final.setText("Tu pedido es el #"+pedidoActual.getIdpedido()+". Te llamaremos cuando este listo");
+        Timer tm = new Timer();
+        tm.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
 
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        lb_tiempo_final.setText("La ventana se cerrara en "+String.valueOf(segundos)+" segundos");
+                        if(segundos == 0){
+                            PagoController.stagePrincipal.close();
+                            tm.cancel();
+                        }
+
+                        segundos--;
+                    }
+                });
+            }
+        },0,1000);
+    }
 }
+
+

@@ -18,11 +18,23 @@ public class Pedido implements Pagable,Serializable{
 
 
     private int genIdPedido(){
+        Path ruta = Paths.get("src/main/resources/Archivos/pedidos.txt");
+        ArrayList<Integer> idArchivo = new ArrayList<>();
         int num;
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){
+            String ln = br.readLine();
+            while(ln != null){
+                String datos[] = ln.split(",");
+                idArchivo.add(Integer.parseInt(datos[0]));
+                ln = br.readLine();
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
         do{
-            num = (int) (Math.random()*90)+1;
+            num = (int) (Math.random()*800)+100;
             System.out.println(num);
-        }while(idPedidos.contains(num));
+        }while(idPedidos.contains(num)||idArchivo.contains(num));
 
         idPedidos.add(num);
         return num;

@@ -11,13 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+
 import com.example.Ventanas.classes.Ubicacion;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 
 import javafx.scene.control.Alert.AlertType;
@@ -42,14 +41,6 @@ public class LocalController implements Initializable {
     @FXML
     private ImageView BackMapa;
 
-    private int count = 0;
-    private final Label text = new Label(Integer.toString(count));
-
-
-    private void incrementCount() {
-        count++;
-        text.setText(Integer.toString(count));
-    }
 
     /**
      * crea un arrayList con numeros del 1 al 10
@@ -148,14 +139,14 @@ public class LocalController implements Initializable {
             i.getImg().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-
+                    i.setSegundos(5);
                     VBox root = new VBox();
                     VBox parteA = new VBox();
                     VBox parteB = new VBox();
                     HBox parteC = new HBox();
                     HBox parteC1 = new HBox();
                     HBox parteC2 = new HBox();
-                    Label heladeria = new Label("HELADERIA X");
+                    Label heladeria = new Label("KJ icecream");
                     heladeria.setPadding(new Insets(0,0,15,0));
                     parteA.getChildren().add(heladeria);
                     parteA.setAlignment(Pos.CENTER);
@@ -170,7 +161,7 @@ public class LocalController implements Initializable {
 
                     Label lbS1 = new Label("La ventana se cerrara en: ");
                     Label lbS2 = new Label("5");
-                    parteC1.getChildren().addAll(lbS1,text);
+                    parteC1.getChildren().addAll(lbS1,lbS2);
                     parteC1.setPadding(new Insets(10,0,0,15));
 
                     Button cerrar = new Button("cerrar");
@@ -197,25 +188,28 @@ public class LocalController implements Initializable {
                     stagePop.setResizable(false);
                     stagePop.setTitle("Información del local");
 
-                    Thread th = new Thread(new Runnable() {
+                    Timer tm = new Timer();
+                    tm.scheduleAtFixedRate(new TimerTask() {
                         @Override
-
                         public void run() {
-                            try {
-                                Thread.sleep(5000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
 
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    stagePop.close();
+                                    lbS2.setText(String.valueOf(i.getSegundos()));
+                                    int segActual = i.getSegundos();
+                                    if(i.getSegundos() <= 0){
+
+                                        stagePop.close();
+                                        tm.cancel();
+
+                                    }
+
+                                    i.setSegundos(segActual-1);
                                 }
                             });
                         }
-                    });
-                    th.start();
+                    },0,1000);
                     stagePop.show();
                 }
             });

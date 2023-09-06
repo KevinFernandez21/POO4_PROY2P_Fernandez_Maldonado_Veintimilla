@@ -8,17 +8,6 @@ import java.nio.file.Paths;
 
 
 public interface Pagable {
-    public static void guardarPedido(Pedido pedido) {
-        Path ruta = Paths.get("src/main/resources/Archivos/serializado/");
-        String nombreArchivo = "pedido" + pedido.getIdpedido() + ".bin";
-        try (FileOutputStream fileOutputStream = new FileOutputStream(ruta.toFile());
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-            objectOutputStream.writeObject(pedido);
-            System.out.println("Pedido guardado en " + nombreArchivo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * escribe en el archivo pagos.txt el pago realizado por el usuario

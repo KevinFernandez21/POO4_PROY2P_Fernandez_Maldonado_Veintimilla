@@ -1,18 +1,19 @@
 package com.example.Ventanas.Controller;
 import com.example.Ventanas.VentanaPrincipal.PrincipalApplication;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.*;
 
+import com.example.Ventanas.classes.Pago;
 import com.example.Ventanas.classes.Sabor;
 import com.example.Ventanas.classes.incompleteStageException;
 import com.example.Ventanas.classes.metodoPago;
 
+import com.example.Ventanas.interfaz.Pagable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ import javafx.stage.Stage;
 import static com.example.Ventanas.Controller.PedidoController.pedidoActual;
 import static com.example.Ventanas.VentanaPrincipal.PrincipalApplication.rutaFiles;
 
-public class PagoController implements Initializable  {
+public class PagoController implements Initializable, Pagable {
 
     @FXML
     private VBox contenedor_padre_pago;
@@ -97,23 +98,29 @@ public class PagoController implements Initializable  {
     private VBox CreditoBox_pago;
 
 
+    //estos atributos
+    public static Stage stagePrincipal;
+
+    //Componentes para los datos de tarjeta
+    TextField tfName;
+    TextField tfNumero;
+    DatePicker dPicker;
+    TextField tfCVV;
+    //
+
+    metodoPago mPago; //enum que clasifica el metodo de pago
+    Pago pagoRealizado;
 
 
     private static Set<Integer> idPagos = new HashSet<>();
 
 
     //Mi idea es que el boton continuar se sete al checkNull, donde si pasa todas las condiciones entonces se invoca a toCompletado
-    void checkNull(){
-        RadioButton tipoPago = (RadioButton) ModoPago_pago.getSelectedToggle();
-        if(tipoPago == null){
-            System.out.println("Excepcion aca");
-        }else if (tipoPago.getText().equals("Efectivo")){
-            metodoPago m = metodoPago.E;
-        }else{
-            metodoPago m = metodoPago.C;
+    private boolean checkNull(){
+        if(tfName.getText().equals("")||tfNumero.getText().equals("")||tfCVV.getText().equals("")||dPicker.getValue()==null){
+            return true; //sí esta vacio uno de los datos a ingresar
         }
-
-
+        return false; //todos los datos estan ingresado
     }
 
     /**
@@ -121,32 +128,32 @@ public class PagoController implements Initializable  {
      * @return una Id para el pago
      */
     private int genIdPago(){
-        int a = idPagos.size();
+        Path ruta = Paths.get("src/main/resources/Archivos/pagos.txt");
+        ArrayList<Integer> idArchivo = new ArrayList<>();
         int num = 0;
-        while(idPagos.size()==a){
-            num = (int) (Math.random()*49)+1;
-            idPagos.add(num);
-            System.out.println("id del pedido: "+num);
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){
+            String ln = br.readLine();
+            while(ln != null){
+                String datos[] = ln.split(",");
+                idArchivo.add(Integer.parseInt(datos[0]));
+                ln = br.readLine();
+            }
+        }catch(IOException e){
+            e.printStackTrace();
         }
+        do{
+            num = (int) (Math.random()*90)+1;
+            System.out.println(num);
+        }while(idPagos.contains(num)||idArchivo.contains(num));
+
+        idPagos.add(num);
         return num;
     }
 
     /**
      * Escribe el pago realizado en el archivo pagos.txt
      */
-    private void writePago(){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFiles+"pagos.txt",true))){
-            String valor = txtValor_pago.getText();
-            String plus = txtAdicional_pago.getText();
-            String iva = txtIva_pago.getText();
-            String total = txtTotal_pago.getText();
-            int idP = genIdPago();
 
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-
-    }
 
     /**
      * Genera un layout con textFields para la transacción con tarjeta de credito, se genera solo si el usuario selecciono la opcion de pago con tarjeta de credito
@@ -162,7 +169,7 @@ public class PagoController implements Initializable  {
             Label lbName = new Label("Nombre:");
             lbName.setPadding(new Insets(0,0,0,55));
             lbName.setId("lb_tap_pago");
-            TextField tfName = new TextField();
+            tfName = new TextField();
             tfName.setId("txtValor_pago");
             linea1.getChildren().addAll(lbName,tfName);
 
@@ -171,7 +178,7 @@ public class PagoController implements Initializable  {
             Label lbNumero = new Label("Numero:");
             lbNumero.setId("lb_tap_pago");
             lbNumero.setPadding(new Insets(0,0,0,55));
-            TextField tfNumero = new TextField();
+            tfNumero = new TextField();
             tfNumero.setId("txtValor_pago");
             linea2.getChildren().addAll(lbNumero,tfNumero);
 
@@ -181,7 +188,7 @@ public class PagoController implements Initializable  {
             lbFecha.setId("lb_tap_pago");
             lbFecha.setPadding(new Insets(0,0,0,55));
 
-            DatePicker dPicker = new DatePicker();
+            dPicker = new DatePicker();
             dPicker.setId("txtValor_pago");
             linea3.getChildren().addAll(lbFecha,dPicker);
 
@@ -191,7 +198,7 @@ public class PagoController implements Initializable  {
             lbCVV.setPadding(new Insets(0,0,0,55));
             lbCVV.setId("lb_tap_pago");
 
-            TextField tfCVV = new TextField();
+            tfCVV = new TextField();
             tfCVV.setId("txtValor_pago");
             linea4.getChildren().addAll(lbCVV,tfCVV);
 
@@ -218,14 +225,18 @@ public class PagoController implements Initializable  {
         Double iva = subtotal*0.12;
         Double total = subtotal + iva + extra;
 
-        txtAdicional_pago.setText(String.format("%.2f", extra));
-        txtIva_pago.setText(String.format("%.2f", iva));
-        txtTotal_pago.setText(String.format("%.2f", total));
+        txtAdicional_pago.setText(String.format(Locale.US,"%.2f", extra));
+        txtIva_pago.setText(String.format(Locale.US,"%.2f", iva));
+        txtTotal_pago.setText(String.format(Locale.US,"%.2f", total));
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        tfName = new TextField();
+        tfCVV = new TextField();
+        tfNumero = new TextField();
+        dPicker = new DatePicker();
         btEfectivo_pago.getStyleClass().add("radio-button-container");
         btTarteja_pago.getStyleClass().add("radio-button-container");
         //  txtValor.setText("4.12");
@@ -234,6 +245,7 @@ public class PagoController implements Initializable  {
             public void handle(MouseEvent event){
                 parteCredito();
                 calcDatos(true);
+                mPago = metodoPago.C;
             }
 
         });
@@ -247,8 +259,9 @@ public class PagoController implements Initializable  {
                     lb2.setFont(new Font("System Bold Italic",31));
                     CreditoBox_pago.getChildren().add(lb2);
                     CreditoBox_pago.setAlignment(Pos.CENTER);
+                    calcDatos(false);
+                    mPago = metodoPago.E;
                 }
-                calcDatos(false);
             }
         });
 
@@ -343,12 +356,23 @@ public class PagoController implements Initializable  {
             try {
                 if(ModoPago_pago.getSelectedToggle()==null){
                     throw new incompleteStageException("No se ha seleccionado nada.");
+                }if(checkNull()&&mPago==metodoPago.C){
+                    throw new incompleteStageException("datos de tarjeta incompletos.");
                 }else {
                     FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("completado-view.fxml"));
                     Parent p = fxmlLoader.load();
                     Scene scene = new Scene(p);
-
+                    switch(mPago){
+                        case E:
+                            pagoRealizado = new Pago(pedidoActual.getIdpedido(),pedidoActual.getNombre(),Double.parseDouble(txtTotal_pago.getText()),LocalDate.now().toString(),mPago);
+                            break;
+                        case C:
+                            pagoRealizado = new Pago(pedidoActual.getIdpedido(),tfName.getText(),Double.parseDouble(txtTotal_pago.getText()), dPicker.getValue().toString(),mPago);
+                            break;
+                    }
+                    Pagable.generarTransaccion(pagoRealizado);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stagePrincipal = window;
 
                     window.setTitle("Completado");
                     window.setScene(scene);
