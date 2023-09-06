@@ -41,7 +41,7 @@ public class Sabor implements Comparable<Sabor> {
      * @throws IOException
      */
     public static ArrayList<Sabor> leerSabores() throws IOException {
-        Path file = Paths.get("src", "main","resources","Archivos","sabores.txt");
+        Path file = Paths.get("Archivos","sabores.txt");
         ArrayList<Sabor> lista = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file.toFile(), Charset.forName("UTF-8")))) {
             String line;

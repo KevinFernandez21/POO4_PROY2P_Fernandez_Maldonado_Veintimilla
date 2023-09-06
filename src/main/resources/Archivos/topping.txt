@@ -1,6 +1,0 @@
-Grageas de chocolate,0.50
-Grageas de carmelo,0.50
-Sirope de Monjas,0.80
-Sirope de Fresa,0.90
-Sirope de chocolate,0.80
-Galleta Oreo,0.40

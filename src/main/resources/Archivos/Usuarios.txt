@@ -1,5 +1,0 @@
-juan,piguave,juanito12,5721,JuanP@mail.com
-marcos,zambrano,maza20,Abx64,MZ@mail.com
-medardo,baños,mb20,sc2,mb@mail.com
-maria,armando,mar12,abc,mar@mail.com
-a,b,ab,123,MZ@mail.com

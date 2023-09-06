@@ -84,7 +84,7 @@ public class PrincipalController {
      */
     public static void leerUsuario(){
 
-        Path ruta = Paths.get("src/main/resources/Archivos/Usuarios.txt");
+        Path ruta = Paths.get("Archivos/Usuarios.txt");
 
         try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){
             String ln = br.readLine();

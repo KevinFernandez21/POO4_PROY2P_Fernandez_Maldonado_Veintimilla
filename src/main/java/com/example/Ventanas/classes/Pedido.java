@@ -18,7 +18,7 @@ public class Pedido implements Pagable,Serializable{
 
 
     private int genIdPedido(){
-        Path ruta = Paths.get("src/main/resources/Archivos/pedidos.txt");
+        Path ruta = Paths.get("Archivos/pedidos.txt");
         ArrayList<Integer> idArchivo = new ArrayList<>();
         int num;
         try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){
@@ -69,7 +69,7 @@ public class Pedido implements Pagable,Serializable{
      * @param pedido pedido realizado por el usuario
      */
     public static void escribirArchivo(Pedido pedido){
-        Path ruta = Paths.get("src/main/resources/Archivos/pedidos.txt");
+        Path ruta = Paths.get("Archivos/pedidos.txt");
         try (FileWriter fileWriter = new FileWriter(ruta.toFile(), true);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             String lineaPedido = pedido.getIdpedido() + "," + pedido.getNombre() + "," + pedido.getTotal();
@@ -85,7 +85,7 @@ public class Pedido implements Pagable,Serializable{
      */
     public void escribirBin() {
         //Path ruta = Paths.get("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin");
-        try(ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin"))){
+        try(ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream("Archivos/bins/pedido"+this.idpedido+".bin"))){
             ob.writeObject(this);
             ob.flush();
         }catch(FileNotFoundException e){
@@ -102,7 +102,7 @@ public class Pedido implements Pagable,Serializable{
      */
     public static ArrayList<Pedido> leerArchivo(){
         ArrayList<Pedido> lPedidos = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Archivos/pedidos.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("Archivos/pedidos.txt"))){
             String ln = br.readLine();
             while(ln != null){
                 String[] datos = ln.split(",");

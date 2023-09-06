@@ -14,7 +14,7 @@ public interface Pagable {
      * @param pago pago realizado por el usuario
      */
     public static void generarTransaccion(Pago pago){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/Archivos/pagos.txt",true))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("Archivos/pagos.txt",true))){
             bw.write(pago.toString());
             bw.newLine();
         }catch(IOException e){

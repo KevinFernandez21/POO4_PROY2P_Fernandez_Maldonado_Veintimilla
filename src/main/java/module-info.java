@@ -3,8 +3,6 @@ module com.example.poo4_proy2p_fernandez_maldonado_veintimilla {
     requires javafx.fxml;
     requires javafx.graphics;
 
-    requires com.dlsc.formsfx;
-    requires org.kordamp.bootstrapfx.core;
 
     opens com.example.Ventanas.VentanaPrincipal to javafx.fxml;
     exports com.example.Ventanas.VentanaPrincipal;

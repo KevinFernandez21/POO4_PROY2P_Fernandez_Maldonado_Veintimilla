@@ -43,7 +43,7 @@ public class Topping {
      * @throws IOException
      */
     public static ArrayList<Topping> leerTopping() throws IOException {
-        Path file = Paths.get("src", "main","resources","Archivos","topping.txt");
+        Path file = Paths.get("Archivos","topping.txt");
         ArrayList<Topping> lista = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file.toFile(), Charset.forName("UTF-8")))) {
             String line;

@@ -128,7 +128,7 @@ public class PagoController implements Initializable, Pagable {
      * @return una Id para el pago
      */
     private int genIdPago(){
-        Path ruta = Paths.get("src/main/resources/Archivos/pagos.txt");
+        Path ruta = Paths.get("Archivos/pagos.txt");
         ArrayList<Integer> idArchivo = new ArrayList<>();
         int num = 0;
         try(BufferedReader br = new BufferedReader(new FileReader(ruta.toFile()))){

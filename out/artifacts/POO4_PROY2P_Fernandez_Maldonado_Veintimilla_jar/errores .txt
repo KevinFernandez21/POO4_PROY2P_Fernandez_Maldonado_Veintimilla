@@ -1,0 +1,22 @@
+Primer error :
+Error: LinkageError occurred while loading main class com.example.Ventanas.VentanaPrincipal.PrincipalApplication
+        java.lang.UnsupportedClassVersionError: com/example/Ventanas/VentanaPrincipal/PrincipalApplication has been compiled by a more recent version of the Java Runtime (class file version 64.0), this version of the Java Runtime only recognizes class file versions up to 55.0 me sale este error
+
+Solucion: Instalar jdk 20
+
+Segundo error:
+Error: JavaFX runtime components are missing, and are required to run this application
+
+Solucion:
+java --module-path C:\Users\hombr\.m2\repository\org\javafx-sdk-20.0.2\lib --add-modules javafx.controls,javafx.fxml -jar POO4_PROY2P_Fernandez_Maldonado_Veintimilla.jar
+
+porque pasa esto:
+El problema que estás experimentando se debe a que JavaFX no está incluido en el JDK a partir de Java 11, por lo que cuando ejecutas tu aplicación JavaFX fuera de IntelliJ IDEA o cualquier otro entorno de desarrollo, necesitas proporcionar las rutas adecuadas al módulo JavaFX.
+
+La solución que mencionaste, agregar las opciones --module-path y --add-modules con la ruta al SDK de JavaFX y los módulos requeridos, es la forma correcta de resolver este problema al ejecutar tu aplicación JavaFX desde la línea de comandos. Para hacerlo, sigue estos pasos:
+
+ruta de las librerias:
+C:\Users\hombr\.m2\repository\org\javafx-sdk-20.0.2\lib
+nombre del proyecto:
+POO4_PROY2P_Fernandez_Maldonado_Veintimilla.jar
+

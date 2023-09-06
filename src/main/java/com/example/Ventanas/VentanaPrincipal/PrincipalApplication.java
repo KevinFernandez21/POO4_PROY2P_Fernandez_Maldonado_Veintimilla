@@ -17,8 +17,8 @@ import com.example.Ventanas.classes.*;
 import java.io.IOException;
 
 public class PrincipalApplication extends Application {
-    public static String rutaFiles = "src/main/resources/Archivos/";
-    public static String rutaImagen = "src/main/resources/Archivos/imagenes.icono/";
+    public static String rutaFiles = "Archivos/";
+    public static String rutaImagen = "Archivos/imagenes.icono/";
     @Override
     public void start(Stage PrincipalStage) throws IOException {
         String cssFile = getClass().getResource("/css/style.css").toExternalForm();

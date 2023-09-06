@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -97,7 +96,7 @@ public class Paso1Controller implements Initializable {
             try{
                 listaBase = Base.leerBase();
                 for(Base base: listaBase){
-                    Path file = Paths.get("src", "main","resources","Archivos","imagenes","base",base.getTipo()+".png");
+                    Path file = Paths.get( "Archivos","imagenes","base",base.getTipo()+".png");
                     Insets padding = new Insets(10);
 
                     VBox Contenedor_base = new VBox();

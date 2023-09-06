@@ -50,7 +50,7 @@ public class EmergenteController implements Initializable {
         Task<Void> task = new Task<Void>(){
 
             protected Void call(){
-                try(BufferedReader br = new BufferedReader((new FileReader("src/main/resources/Archivos/pedidos.txt")))){
+                try(BufferedReader br = new BufferedReader((new FileReader("Archivos/pedidos.txt")))){
                     List<String> pedidosFormato = new ArrayList<>();
                     String ln= br.readLine();
 

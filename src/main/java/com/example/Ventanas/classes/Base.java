@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Base {
     private String tipo;
@@ -40,7 +39,7 @@ public class Base {
      * @throws IOException
      */
     public static ArrayList<Base> leerBase() throws IOException{
-        Path file = Paths.get("src", "main","resources","Archivos","base.txt");
+        Path file = Paths.get("Archivos","base.txt");
         ArrayList<Base> lista = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file.toFile(),Charset.forName("UTF-8")))) {
             String line;
