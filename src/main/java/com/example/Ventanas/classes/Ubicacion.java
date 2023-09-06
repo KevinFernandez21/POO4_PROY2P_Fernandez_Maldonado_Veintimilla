@@ -66,7 +66,15 @@ public class Ubicacion {
         return this.ImageHelado;
     }
 
+    /**
+     * getter segundos de aparicion en ventana local
+     * @return segundos
+     */
     public int getSegundos(){return this.segundos;}
 
+    /**
+     * setter segundos de aparicion en ventana local
+     * @return segundos
+     */
     public void setSegundos(int seg){this.segundos = seg;}
 }

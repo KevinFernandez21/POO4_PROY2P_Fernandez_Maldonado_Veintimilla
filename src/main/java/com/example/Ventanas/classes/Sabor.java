@@ -34,6 +34,12 @@ public class Sabor implements Comparable<Sabor> {
     }
 
     public String toString(){ return tipo + " -$" +precio;}
+
+    /**
+     * lee la lista de sabores
+     * @return
+     * @throws IOException
+     */
     public static ArrayList<Sabor> leerSabores() throws IOException {
         Path file = Paths.get("src", "main","resources","Archivos","sabores.txt");
         ArrayList<Sabor> lista = new ArrayList<>();
@@ -49,6 +55,11 @@ public class Sabor implements Comparable<Sabor> {
         return lista;
     }
 
+    /**
+     * ordena los objetos sabores segun el orden alfabetico del atributo tipo
+     * @param o otro objeto sabor
+     * @return
+     */
     @Override
     public int compareTo(Sabor o) {
         return this.tipo.compareTo(o.getTipo());

@@ -55,6 +55,11 @@ public class Paso2Controller implements Initializable {
     private Label pre2_paso2;
 
 
+    /**
+     * canbia la escena a paso 3
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void toPaso3(ActionEvent event) throws IOException {
         try {

@@ -43,6 +43,9 @@ public class EmergenteController implements Initializable {
 
     }
 
+    /**
+     * Coloca los pedidos en la ventana emergente, se actualiza cada 5 segundos
+     */
     private void ordenarListaPedidos(){
         Task<Void> task = new Task<Void>(){
 

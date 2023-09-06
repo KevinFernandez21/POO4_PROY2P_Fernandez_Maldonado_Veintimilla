@@ -46,7 +46,11 @@ public class PassController implements Initializable {
         this.ventanaEmergente = ventanaEmergente;
     }
 
-
+    /**
+     * cambia la escena a paso1
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPaso1(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
@@ -68,6 +72,11 @@ public class PassController implements Initializable {
         window.show();
     }
 
+    /**
+     * crea un nuevo stage para local-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goLocales(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("local-view.fxml"));

@@ -56,6 +56,12 @@ public class Paso1Controller implements Initializable {
 
     //externo
     private ArrayList<Base> listaBase;
+
+    /**
+     * cambia la escena a paso2
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPaso2(ActionEvent event) throws IOException {
         try {

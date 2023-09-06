@@ -20,6 +20,10 @@ public class Pago {
     private metodoPago mPago;
     private static Set<Integer> idPedidos = new HashSet<>();
 
+    /**
+     * genera una id unica para el pago
+     * @return id para pago
+     */
     private int genIdPago(){
         Path ruta = Paths.get("src/main/resources/Archivos/pagos.txt");
         ArrayList<Integer> idArchivo = new ArrayList<>();

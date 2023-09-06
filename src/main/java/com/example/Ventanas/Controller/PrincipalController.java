@@ -79,6 +79,9 @@ public class PrincipalController {
         return false;
     }
 
+    /**
+     * lee la lista de usuarios y los guarda en un ArrayList
+     */
     public static void leerUsuario(){
 
         Path ruta = Paths.get("src/main/resources/Archivos/Usuarios.txt");
@@ -106,6 +109,11 @@ public class PrincipalController {
         return usuarioSeleccionado;
     }
 
+    /**
+     * crea nuevos stages para las escenas emerrgente y pass
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPassVentana(ActionEvent event) throws IOException{
 

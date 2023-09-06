@@ -18,10 +18,18 @@ public class Base {
         this.precio = precio;
     }
 
+    /**
+     * getter tipo
+     * @return tipo
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * getter precio
+     * @return
+     */
     public Double getPrecio() {
         return precio;
     }

@@ -266,6 +266,8 @@ public class PagoController implements Initializable, Pagable {
         });
 
     }
+
+
     void goPassVentana(ActionEvent event,Button b) throws IOException{
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
@@ -291,6 +293,8 @@ public class PagoController implements Initializable, Pagable {
         Scene scene1 = new Scene(root1);
         stage.setScene(scene1);
     }
+
+
     @FXML
     void AccionCancelar(ActionEvent event){
         Stage emergente = new Stage();

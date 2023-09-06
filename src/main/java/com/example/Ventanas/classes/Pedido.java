@@ -80,6 +80,9 @@ public class Pedido implements Pagable,Serializable{
         }
     }
 
+    /**
+     * escribe el objeto pedido serializado
+     */
     public void escribirBin() {
         //Path ruta = Paths.get("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin");
         try(ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream("src/main/resources/Archivos/bins/pedido"+this.idpedido+".bin"))){

@@ -49,6 +49,12 @@ public class Paso3Controller implements Initializable {
 
     @FXML
     protected Label pre3_paso3;
+
+    /**
+     * cambia la escena a pedido-view
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void goPedido(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("pedido-view.fxml"));
@@ -76,6 +82,10 @@ public class Paso3Controller implements Initializable {
         cargarTopping();
         pre3_paso3.setText("Valor a pagar: " + String.valueOf(calcularPrecioRecolectado()));
     }
+
+    /**
+     * carga las opciones de topping en la escena
+     */
     public void cargarTopping(){
         contenedor_part2_paso3.getChildren().clear();
         contenedor_part2_paso3.setOrientation(Orientation.VERTICAL);
